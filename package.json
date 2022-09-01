@@ -1,0 +1,76 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm run prebuild; next build",
+    "prebuild": "node ./scripts/prebuild.js",
+    "start": "npm run prebuild; next dev",
+    "lint": "xo --fix",
+    "test": "echo nothing to test here"
+  },
+  "dependencies": {
+    "@code-hike/mdx": "^0.7.4-next.2",
+    "@fontsource/open-sans": "^4.5.11",
+    "@mdx-js/loader": "^2.1.3",
+    "@monaco-editor/react": "^4.4.5",
+    "@next/mdx": "^12.2.5",
+    "github-markdown-css": "^5.1.0",
+    "lodash": "^4.17.21",
+    "next": "latest",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-slug": "^5.0.1",
+    "remark-gfm": "^3.0.1",
+    "uinix-ui": "^0.3.0-beta"
+  },
+  "devDependencies": {
+    "eslint-config-xo-react": "^0.27.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "xo": "^0.51.0"
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false
+  },
+  "xo": {
+    "esnext": false,
+    "env": [
+      "browser"
+    ],
+    "extends": [
+      "xo-react"
+    ],
+    "prettier": true,
+    "rules": {
+      "import/no-anonymous-default-export": "off",
+      "import/no-unassigned-import": "off",
+      "no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_",
+          "destructuredArrayIgnorePattern": "^_"
+        }
+      ],
+      "react/no-array-index-key": "off",
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+      "unicorn/no-array-callback-reference": "off"
+    },
+    "overrides": [
+      {
+        "files": [
+          "next.config.js"
+        ],
+        "rules": {
+          "unicorn/prefer-module": "off"
+        }
+      }
+    ]
+  }
+}

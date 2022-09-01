@@ -1,0 +1,14 @@
+.DS_Store
+*.d.ts
+*.log
+coverage/
+dist/
+node_modules/
+package-lock.json
+
+# project
+.next
+todo.md
+
+# generated
+pages/packages/**/readme.md
