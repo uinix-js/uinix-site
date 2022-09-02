@@ -1,9 +1,10 @@
 import {Element} from './element.js';
 
 export function Select({
+  enableBlurOnChange,
+  enableNullValue,
   options,
   placeholder,
-  shouldBlurOnChange,
   value,
   onChange,
   ...restProps
@@ -12,9 +13,13 @@ export function Select({
     const select = event.target;
     const updatedValue = select.value;
 
-    onChange(updatedValue === '' ? null : updatedValue);
+    if (enableNullValue) {
+      onChange(updatedValue === '' ? null : updatedValue);
+    } else {
+      onChange(updatedValue);
+    }
 
-    if (shouldBlurOnChange) {
+    if (enableBlurOnChange) {
       select.blur();
     }
   };
@@ -26,7 +31,7 @@ export function Select({
       value={value === null ? '' : value}
       onChange={handleChange}
     >
-      <option value="">{placeholder}</option>
+      {enableNullValue && <option value="">{placeholder}</option>}
       {options.map(({label, value}) => (
         <option key={value} value={value}>
           {label}

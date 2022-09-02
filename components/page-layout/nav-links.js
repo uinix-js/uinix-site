@@ -1,5 +1,6 @@
 import {useRouter} from 'next/router';
 import {useMemo} from 'react';
+import {props} from 'uinix-fp';
 import {useTheme} from 'uinix-ui';
 
 import {useToc} from '../../hooks/use-toc.js';
@@ -20,7 +21,7 @@ export function NavLinks() {
       includeSelector: 'main',
       headings: ['h2', 'h3', 'h4'],
       id: pathname,
-      offsetY: theme.spacings.offsets.navLinks.height,
+      offsetY: props('spacings.offsets.navLinks.height')(theme),
     }),
     [pathname, theme],
   );

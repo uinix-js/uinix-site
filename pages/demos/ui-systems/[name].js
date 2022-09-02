@@ -1,9 +1,13 @@
 import {createElement as h, useEffect, useState} from 'react';
 import {load} from 'uinix-ui';
 
+import {NavLinks} from '../../../components/page-layout/nav-links.js';
+import {Element} from '../../../components/ui/element.js';
+import {Layout} from '../../../components/ui/layout.js';
+import {Select} from '../../../components/ui/select.js';
+import {SystemKnowledge} from '../../../components/ui-systems/system-knowledge.js';
 import {pages} from '../../../data/pages.js';
 import {loadSystem as loadDefaultSystem} from '../../../system/load-system.js';
-import {Text} from '../../../components/ui/text.js';
 
 export const getStaticPaths = () => {
   const paths = pages.demos.uiSystems.cards.map((card) => ({
@@ -31,6 +35,7 @@ export const getStaticProps = ({params}) => {
 
 export default function Page({name}) {
   const [demo, setDemo] = useState(null);
+  const [view, setView] = useState('demo');
 
   useEffect(() => {
     const loadDemo = async () => {
@@ -50,13 +55,92 @@ export default function Page({name}) {
 
     loadDemo();
 
-    return () => loadDefaultSystem(); // Cleanup and reload default system
+    // Reset system global styles, reload default system
+    return () => {
+      for (const stylesheet of document.querySelectorAll(
+        'style[data-fela-type="STATIC"]',
+      ))
+        stylesheet.remove();
+
+      loadDefaultSystem();
+    };
   }, [name]);
 
+  let contents;
   if (demo) {
-    const {App} = demo;
-    return <App />;
+    const {App, referenceDate, src, system, url} = demo;
+    switch (view) {
+      case 'system-knowledge':
+        contents = <SystemKnowledge system={system} />;
+        break;
+      case 'snapshot':
+        contents = (
+          <Layout direction="column" styles={componentStyles.padded}>
+            <p>
+              This demo <a href={url}>references</a> a snapshot taken on{' '}
+              {referenceDate}.
+            </p>
+            <img src={src} />
+          </Layout>
+        );
+        break;
+      default:
+        contents = <App />;
+    }
+  } else {
+    contents = (
+      <Layout align="center" h="100vh" justify="center" w="100vw">
+        Loading contents…
+      </Layout>
+    );
   }
 
-  return <Text>Loading demo...</Text>;
+  const handleUpdateView = (updatedView) => {
+    setView(updatedView);
+    window.scrollTo(0, 0);
+  };
+
+  return (
+    <Layout direction="column">
+      <Layout
+        align="flex-start"
+        direction="column"
+        styles={componentStyles.header}
+      >
+        <Element styles={componentStyles.padded}>
+          <NavLinks />
+        </Element>
+        <Element as="label" styles={componentStyles.padded}>
+          View:{' '}
+          <Select
+            options={[
+              {label: 'Demo', value: 'demo'},
+              {label: 'Snapshot', value: 'snapshot'},
+              {label: 'System Knowledge', value: 'system-knowledge'},
+            ]}
+            placeholder="Select a view"
+            value={view}
+            onChange={handleUpdateView}
+          />
+        </Element>
+      </Layout>
+      {contents}
+    </Layout>
+  );
 }
+
+// This style must be system-agnostic
+const componentStyles = {
+  header: {
+    backgroundColor: 'white',
+    position: 'sticky',
+    top: 0,
+    zIndex: 2,
+    '& a': {
+      color: 'sienna',
+    },
+  },
+  padded: {
+    padding: 16,
+  },
+};

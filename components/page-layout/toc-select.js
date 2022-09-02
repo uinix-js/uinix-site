@@ -14,7 +14,8 @@ export function TocSelect({toc, value, onChange}) {
 
   return (
     <Select
-      shouldBlurOnChange
+      enableBlurOnChange
+      enableNullValue
       options={options}
       placeholder="[§]"
       styles={componentStyles.override}
