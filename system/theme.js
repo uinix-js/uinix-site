@@ -45,10 +45,6 @@ const fontSizes = {
   l: '2rem',
 };
 
-const lineHeights = {
-  body: 2,
-};
-
 const opacities = {
   invisible: 0,
   disabled: 0.3,
@@ -100,7 +96,6 @@ export const theme = createTheme({
   colors,
   fontFamilies,
   fontSizes,
-  lineHeights,
   opacities,
   shadows,
   sizes,

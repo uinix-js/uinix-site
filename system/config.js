@@ -30,5 +30,7 @@ export const config = {
     ({onClick}) => (onClick ? styles.interactive : null),
   ],
   enableAtomicCss: false,
+  enableCssVariables: true,
+  namespace: 'uinix',
   responsiveCssProperties: ['gridTemplateColumns'],
 };

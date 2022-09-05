@@ -73,7 +73,7 @@ const global = {
     color: 'text.body',
     fontFamily: 'body',
     fontSize: 'm',
-    lineHeight: 'body',
+    lineHeight: 2,
     margin: 0,
     padding: 0,
   },

@@ -17,18 +17,18 @@
     "github-markdown-css": "^5.1.0",
     "lodash": "^4.17.21",
     "next": "latest",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
-    "uinix-ui": "^0.3.0-beta"
+    "uinix-ui": "uinix-js/uinix-ui"
   },
   "devDependencies": {
     "eslint-config-xo-react": "^0.27.0",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "xo": "^0.51.0"
+    "xo": "^0.52.3"
   },
   "prettier": {
     "bracketSpacing": false,
