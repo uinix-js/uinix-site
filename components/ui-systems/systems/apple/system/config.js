@@ -52,4 +52,6 @@ export const config = createConfig({
       },
     }),
   ],
+  enableCssVariables: true,
+  namespace: 'apple',
 });
