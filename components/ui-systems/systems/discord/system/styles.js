@@ -18,12 +18,6 @@ const rules = {
     overflowY: 'auto',
     scrollbarWidth,
   }),
-  stickyTop: {
-    backgroundColor: 'inherit',
-    position: 'sticky',
-    top: 0,
-    zIndex: 'forward',
-  },
 };
 
 const global = {

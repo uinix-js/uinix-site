@@ -53,18 +53,16 @@ export function NavLinks() {
   });
 
   return (
-    <Layout wrap align="center" h="navLinks.height" variant="sticky.top">
-      {hasSubpaths && (
-        <>
-          <nav>
-            <Layout wrap as="ol">
-              {rootLink}
-              {links}
-            </Layout>
-          </nav>
-          <TocSelect toc={toc} value={activeHeadingId} onChange={permalink} />
-        </>
-      )}
-    </Layout>
+    hasSubpaths && (
+      <Layout wrap align="center" h="navLinks.height" variant="sticky.top">
+        <nav>
+          <Layout wrap as="ol">
+            {rootLink}
+            {links}
+          </Layout>
+        </nav>
+        <TocSelect toc={toc} value={activeHeadingId} onChange={permalink} />
+      </Layout>
+    )
   );
 }

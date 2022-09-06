@@ -2,6 +2,7 @@ import {ThemePlayground} from '../../components/theme-playground/theme-playgroun
 
 export const getStaticProps = () => ({
   props: {
+    isFullPage: true,
     title: 'Theme Playground',
     description:
       'Playground to interactively learn and explore uinix-theme APIs.',

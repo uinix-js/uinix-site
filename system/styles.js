@@ -35,7 +35,7 @@ const rules = {
   interactive: shared.interactive,
   sticky: {
     top: {
-      backgroundColor: 'background.primary',
+      backgroundColor: 'inherit',
       position: 'sticky',
       top: 0,
       zIndex: 'forward',
@@ -49,6 +49,9 @@ const rules = {
 };
 
 const vendor = {
+  '#__next': {
+    backgroundColor: 'inherit',
+  },
   '.icon-link::before': {
     content: '"#"',
     marginRight: 's',

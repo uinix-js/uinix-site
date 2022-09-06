@@ -3,17 +3,7 @@ import {Icon, Layout, Text} from 'uinix-ui';
 
 export function Header() {
   return (
-    <Layout
-      as="header"
-      bg="background.gray4"
-      justify="flex-end"
-      position="sticky"
-      px="l"
-      py="m"
-      right={0}
-      top={0}
-      z="forward"
-    >
+    <Layout as="header" bg="background.gray4" justify="flex-end" px="l" py="m">
       <Layout
         align="center"
         bg="background.gray2"

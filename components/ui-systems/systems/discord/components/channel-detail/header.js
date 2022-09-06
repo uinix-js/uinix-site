@@ -1,12 +1,11 @@
 import {useState} from 'react';
 import {noop} from 'uinix-fp';
-import {Icon, Layout, Text, useStyles} from 'uinix-ui';
+import {Icon, Layout, Text} from 'uinix-ui';
 
 import {Search} from './search.js';
 
 export function Header({shouldShowMembers, onToggleMembers}) {
   const [shouldMute, setShouldMute] = useState(false);
-  const styles = useStyles();
 
   const iconSize = 'icon.l';
 
@@ -19,7 +18,6 @@ export function Header({shouldShowMembers, onToggleMembers}) {
       justify="space-between"
       px="m"
       spacing="m"
-      styles={styles.stickyTop}
     >
       <Layout align="center" spacing="s">
         <Icon color="text.muted" icon="channel" size={iconSize} />

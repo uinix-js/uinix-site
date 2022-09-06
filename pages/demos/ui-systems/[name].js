@@ -1,12 +1,14 @@
+import {useRouter} from 'next/router';
 import {createElement as h, useEffect, useState} from 'react';
+import {merge} from 'uinix-fp';
 import {load} from 'uinix-ui';
 
-import {NavLinks} from '../../../components/page-layout/nav-links.js';
 import {Element} from '../../../components/ui/element.js';
 import {Layout} from '../../../components/ui/layout.js';
 import {Select} from '../../../components/ui/select.js';
 import {SystemKnowledge} from '../../../components/ui-systems/system-knowledge.js';
 import {pages} from '../../../data/pages.js';
+import {system as defaultSystem} from '../../../system/system.js';
 import {loadSystem as loadDefaultSystem} from '../../../system/load-system.js';
 
 export const getStaticPaths = () => {
@@ -27,7 +29,7 @@ export const getStaticProps = ({params}) => {
 
   return {
     props: {
-      disableLayout: true,
+      isFullPage: true,
       name,
     },
   };
@@ -35,9 +37,13 @@ export const getStaticProps = ({params}) => {
 
 export default function Page({name}) {
   const [demo, setDemo] = useState(null);
+
   const [view, setView] = useState('demo');
 
+  const router = useRouter();
+
   useEffect(() => {
+    let unload;
     const loadDemo = async () => {
       try {
         const {demo} = await import(
@@ -45,7 +51,7 @@ export default function Page({name}) {
         );
 
         const {config, system} = demo;
-        load({h, config, system});
+        unload = load({h, config, system: merge(defaultSystem)(system)});
 
         setDemo(demo);
       } catch (error) {
@@ -55,16 +61,13 @@ export default function Page({name}) {
 
     loadDemo();
 
-    // Reset system global styles, reload default system
+    // Reset system global styles, reload default system, repush route
     return () => {
-      for (const stylesheet of document.querySelectorAll(
-        'style[data-fela-type="STATIC"]',
-      ))
-        stylesheet.remove();
-
+      unload?.();
       loadDefaultSystem();
+      router.reload(window.location.pathname);
     };
-  }, [name]);
+  }, [name, router]);
 
   let contents;
   if (demo) {
@@ -75,7 +78,7 @@ export default function Page({name}) {
         break;
       case 'snapshot':
         contents = (
-          <Layout direction="column" styles={componentStyles.padded}>
+          <Layout direction="column">
             <p>
               This demo <a href={url}>references</a> a snapshot taken on{' '}
               {referenceDate}.
@@ -101,46 +104,21 @@ export default function Page({name}) {
   };
 
   return (
-    <Layout direction="column">
-      <Layout
-        align="flex-start"
-        direction="column"
-        styles={componentStyles.header}
-      >
-        <Element styles={componentStyles.padded}>
-          <NavLinks />
-        </Element>
-        <Element as="label" styles={componentStyles.padded}>
-          View:{' '}
-          <Select
-            options={[
-              {label: 'Demo', value: 'demo'},
-              {label: 'Snapshot', value: 'snapshot'},
-              {label: 'System Knowledge', value: 'system-knowledge'},
-            ]}
-            placeholder="Select a view"
-            value={view}
-            onChange={handleUpdateView}
-          />
-        </Element>
-      </Layout>
+    <Layout direction="column" spacing="l">
+      <Element as="label">
+        View:{' '}
+        <Select
+          options={[
+            {label: 'Demo', value: 'demo'},
+            {label: 'Snapshot', value: 'snapshot'},
+            {label: 'System Knowledge', value: 'system-knowledge'},
+          ]}
+          placeholder="Select a view"
+          value={view}
+          onChange={handleUpdateView}
+        />
+      </Element>
       {contents}
     </Layout>
   );
 }
-
-// This style must be system-agnostic
-const componentStyles = {
-  header: {
-    backgroundColor: 'white',
-    position: 'sticky',
-    top: 0,
-    zIndex: 2,
-    '& a': {
-      color: 'sienna',
-    },
-  },
-  padded: {
-    padding: 16,
-  },
-};

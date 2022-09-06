@@ -21,7 +21,6 @@ export function ChannelsSidebar() {
         flex="none"
         h="height.header"
         px="m"
-        styles={styles.stickyTop}
       >
         uinix-ui
       </Layout>

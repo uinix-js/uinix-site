@@ -17,7 +17,7 @@ export function Servers() {
         py="m"
         spacing="s"
         styleProps={{scrollbarWidth: 'none '}}
-        styles={[styles.scrollable, styles.stickyTop]}
+        styles={styles.scrollable}
         w="width.sidebar.servers"
       >
         {servers.map((server) => (

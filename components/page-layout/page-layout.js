@@ -14,6 +14,7 @@ export function PageLayout({children, description, title}) {
         <title>uinix-js</title>
       </Head>
       <Layout
+        bg="background.primary"
         direction="column"
         maxW="container.width"
         minH="100vh"
