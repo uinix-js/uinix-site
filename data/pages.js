@@ -83,10 +83,6 @@ export const pages = {
         title: 'The uinix Philosophy',
       },
       {
-        href: '/learn/beautiful-chaos',
-        title: 'Beautiful Chaos',
-      },
-      {
         href: '/learn/ui-complexity',
         title: 'UI Complexity',
       },

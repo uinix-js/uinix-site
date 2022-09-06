@@ -60,13 +60,6 @@ export function ThemePlayground() {
       />
       <Layout flex="auto" minH="400px" spacing="m">
         <Layout flex="0 0 50%">
-          <CodeEditor
-            language="json"
-            value={editorValue}
-            onChange={handleChangeEditorValue}
-          />
-        </Layout>
-        <Layout flex="0 0 50%">
           <StylePreview example={example} />
         </Layout>
       </Layout>

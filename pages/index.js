@@ -7,7 +7,7 @@ export const getStaticProps = () => ({
   props: {
     title: 'As minimal as it gets for rapidly building UIs.',
     description:
-      'Framework-agnostic, dependency-light and configurable. Your UI your rules 🤘.',
+      'Framework-agnostic, build-free and configurable. Your UI your rules 🤘.',
   },
 });
 
