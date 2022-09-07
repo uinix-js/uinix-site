@@ -1,11 +1,13 @@
-import {Element} from '../ui/element.js';
+import {Layout} from '../ui/layout.js';
 import {NavLinks} from './nav-links.js';
 
 export function FullPageLayout({children}) {
   return (
-    <Element bg="inherit" px="l">
+    <Layout bg="inherit" direction="column" minH="100vh" px="l">
       <NavLinks />
-      {children}
-    </Element>
+      <Layout direction="column" flex="auto">
+        {children}
+      </Layout>
+    </Layout>
   );
 }

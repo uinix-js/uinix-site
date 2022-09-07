@@ -18,6 +18,7 @@ export const config = {
     maxWidth: ['maxW'],
     minHeight: ['minH'],
     minWidth: ['minW'],
+    overflowY: ['overflowY'],
     padding: ['p'],
     paddingBottom: ['pb', 'py', 'p'],
     paddingLeft: ['pl', 'px', 'p'],

@@ -1,73 +1,97 @@
 import {useState} from 'react';
 
-import {BrandText} from '../ui/brand-text.js';
-import {CodeEditor} from '../ui/code-editor.js';
-import {Element} from '../ui/element.js';
+import {Card} from '../ui/card.js';
 import {Layout} from '../ui/layout.js';
 import {Select} from '../ui/select.js';
 import {Tabs} from '../ui/tabs.js';
+import {Editor} from './editor.js';
 import {examples} from './examples.js';
-import {StylePreview} from './style-preview.js';
+import {Preview} from './preview.js';
+import {Readme} from './readme.js';
 
 export function ThemePlayground() {
-  const [example, setExample] = useState(examples[0]);
-  const [exampleField, setExampleField] = useState(exampleFieldTabs[0].value);
+  const [selectedTab, setSelectedTab] = useState('examples');
 
-  const handleChangeExample = (updateExampleValue) => {
-    const updatedExample = examples.find(
-      (example) => example.value === updateExampleValue,
-    );
-    setExample(updatedExample);
-  };
+  const [example, setExample] = useState('simple-themed');
 
-  const handleChangeEditorValue = (updatedValue) => {
-    try {
-      const updatedExampleValue = JSON.parse(updatedValue);
-      setExample((previousExample) => ({
-        ...previousExample,
-        [exampleField]: updatedExampleValue,
-      }));
-    } catch {}
-  };
+  const {options, notes, style} = examples[example];
 
-  const editorValue = JSON.stringify(example[exampleField], null, 2);
+  const isEditing = selectedTab === 'editor';
+
+  let contents;
+  switch (selectedTab) {
+    case 'readme':
+      contents = <Readme />;
+      break;
+    case 'examples':
+    case 'editor':
+      contents = (
+        <Layout align="flex-start" direction="column" h="100%" spacing="m">
+          <Layout
+            align="center"
+            flex="none"
+            justify="space-between"
+            spacing="m"
+            w="100%"
+          >
+            <label>
+              Select an example:{' '}
+              <Select
+                placeholder="Select an example"
+                options={exampleOptions}
+                value={example}
+                onChange={setExample}
+              />
+            </label>
+            <button
+              type="button"
+              onClick={() => setSelectedTab(isEditing ? 'examples' : 'editor')}
+            >
+              {isEditing ? 'View' : 'Edit'}
+            </button>
+          </Layout>
+          {isEditing ? (
+            <Editor options={options} style={style} />
+          ) : (
+            <details open>
+              <ul>
+                {notes.map((note) => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ul>
+            </details>
+          )}
+        </Layout>
+      );
+      break;
+    default:
+      break;
+  }
 
   return (
-    <Layout direction="column">
-      <h1>Theme Playground</h1>
-      <p>
-        This playground explores{' '}
-        <BrandText href="/packages/uinix-theme" text="uinix-theme" /> theme
-        APIs. Define your own theme specs to construct valid themes for
-        rendering themed styles with modern CSS-in-JS support. Your theme your
-        rules 🤘.{' '}
-      </p>
-      <Element my="m">
-        <label>
-          Select an example{' '}
-          <Select
-            value={example.value}
-            options={examples}
-            onChange={handleChangeExample}
-          />{' '}
-        </label>
-        or edit theme and styles below.
-      </Element>
+    <Layout direction="column" flex="auto" h="calc(100vh - 240px)">
       <Tabs
-        selectedTab={exampleField}
-        tabs={exampleFieldTabs}
-        onSelectTab={setExampleField}
+        selectedTab={selectedTab}
+        tabs={tabs}
+        onSelectTab={setSelectedTab}
       />
-      <Layout flex="auto" minH="400px" spacing="m">
-        <Layout flex="0 0 50%">
-          <StylePreview example={example} />
-        </Layout>
+      <Layout flex="auto" minH={0} py="m" spacing="m">
+        <Card flex="1">{contents}</Card>
+        <Card flex="1">
+          <Preview options={options} style={style} />
+        </Card>
       </Layout>
     </Layout>
   );
 }
 
-const exampleFieldTabs = [
-  {label: 'Style', value: 'style'},
-  {label: 'Options', value: 'options'},
+const tabs = [
+  {label: 'Readme', value: 'readme'},
+  {label: 'Examples', value: 'examples'},
+  {label: 'Editor', value: 'editor'},
 ];
+
+const exampleOptions = Object.entries(examples).map(([value, {title}], i) => ({
+  label: `${i + 1}. ${title}`,
+  value,
+}));

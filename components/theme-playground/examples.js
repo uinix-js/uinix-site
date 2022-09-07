@@ -1,23 +1,28 @@
-export const examples = [
-  {
-    value: 'default',
-    label: 'Default',
+export const examples = {
+  simple: {
+    title: 'Simple',
     notes: [],
-    style: {},
+    style: {
+      color: 'blue',
+    },
     options: {
-      theme: {},
       themeSpec: {},
+      theme: {},
     },
   },
-  {
-    value: 'simple',
-    label: 'Simple themed',
+  'simple-themed': {
+    title: 'Simple themed',
     notes: ['line 1', 'line 2', 'line 3'],
     style: {
       color: 'primary',
       padding: 'm',
     },
     options: {
+      enableAtomicCss: true,
+      themeSpec: {
+        colors: ['color'],
+        spacings: ['padding'],
+      },
       theme: {
         colors: {
           primary: 'blue',
@@ -28,10 +33,6 @@ export const examples = [
           l: '16px',
         },
       },
-      themeSpec: {
-        colors: ['color'],
-        spacings: ['padding'],
-      },
     },
   },
-];
+};
