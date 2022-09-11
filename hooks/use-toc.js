@@ -114,10 +114,12 @@ export const useToc = (initialOptions = {}) => {
 
     const handleSelectionChange = () => {
       const selection = window.getSelection();
-      const selectionRange = selection.getRangeAt(0).cloneRange();
-      const selectionBox = selectionRange.getClientRects()[0];
-      if (selectionBox) {
-        updateActiveHeadingId(selectionBox.y);
+      if (selection && selection.rangeCount > 0) {
+        const selectionRange = selection.getRangeAt(0).cloneRange();
+        const selectionBox = selectionRange.getClientRects()[0];
+        if (selectionBox) {
+          updateActiveHeadingId(selectionBox.y);
+        }
       }
     };
 

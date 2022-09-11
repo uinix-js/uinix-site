@@ -98,6 +98,8 @@ const global = {
   hr: {
     border: 'none',
     borderBottom: 'border',
+    marginBottom: 'xl',
+    marginTop: 'xl',
     width: '100%',
   },
   html: {

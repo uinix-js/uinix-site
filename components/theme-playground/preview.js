@@ -1,6 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 import {createThemeRenderer} from 'uinix-theme';
-import {v4 as uuid} from 'uuid';
+
+import {BrandText} from '../ui/brand-text.js';
 
 export function Preview({example}) {
   const rendererRef = useRef();
@@ -12,7 +13,7 @@ export function Preview({example}) {
 
     const options = {
       ...config,
-      namespace: `uuid-${uuid()}`,
+      namespace: 'playground',
       theme,
       themeSpec,
     };
@@ -25,27 +26,22 @@ export function Preview({example}) {
 
   return (
     <div className={className}>
-      <h1>Ozymandias</h1>
       <p>
-        I met a Traveller from an antique land, Who said, “Two vast and
-        trunkless legs of stone Stand in the desart. Near them, on the sand,
-        Half sunk, a shattered visage lies, whose frown,
+        <strong>Welcome to the Theme Playground!</strong>
       </p>
       <p>
-        And wrinkled lip, and sneer of cold command, Tell that its sculptor well
-        those passions read, Which yet survive, stamped on these lifeless
-        things, The hand that mocked them, and the heart that fed:
+        In this playground, you can explore{' '}
+        <BrandText href="/packages/uinix-theme" text="uinix-theme" /> features
+        interactively.
       </p>
       <p>
-        And on the pedestal these words appear: “My name is{' '}
-        <em>Ozymandias, King of Kings</em>.” Look on my works ye Mighty, and
-        despair!
+        This panel previews the rendered CSS styles (<code>{className}</code>)
+        applied by examples on the right. You may edit the example to further
+        explore features through code.{' '}
       </p>
       <p>
-        No thing beside remains. Round the decay Of that Colossal Wreck,
-        boundless and bare, The lone and level sands stretch far away.
+        <em>Have fun!</em>
       </p>
-      <cite>Percy Shelley</cite>
     </div>
   );
 }
