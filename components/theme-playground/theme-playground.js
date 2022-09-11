@@ -8,15 +8,15 @@ import {examples} from './examples.js';
 import {Preview} from './preview.js';
 
 export function ThemePlayground() {
-  const [exampleKey, setExampleKey] = useState('simple-themed');
+  const [exampleIndex, setExampleIndex] = useState(0);
 
   const [isEditing, setIsEditing] = useState(false);
 
   const [example, setExample] = useState({});
 
   useEffect(() => {
-    setExample(examples[exampleKey]);
-  }, [exampleKey]);
+    setExample(examples[exampleIndex]);
+  }, [exampleIndex]);
 
   const handleEdit = (updatedValue) => {
     setExample((previousExample) => ({
@@ -41,8 +41,8 @@ export function ThemePlayground() {
                 <Select
                   placeholder="Select an example"
                   options={exampleOptions}
-                  value={exampleKey}
-                  onChange={setExampleKey}
+                  value={exampleIndex}
+                  onChange={setExampleIndex}
                 />
               </label>
               <button type="button" onClick={() => setIsEditing(!isEditing)}>
@@ -67,7 +67,7 @@ export function ThemePlayground() {
   );
 }
 
-const exampleOptions = Object.entries(examples).map(([value, {title}], i) => ({
+const exampleOptions = examples.map(({title}, i) => ({
   label: `${i + 1}. ${title}`,
-  value,
+  value: i,
 }));

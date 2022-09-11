@@ -1,15 +1,20 @@
-export const examples = {
-  simple: {
-    title: 'Simple',
-    notes: [],
+export const examples = [
+  {
+    title: 'Unthemed style',
+    notes: [
+      'This is a simple example rendering an unthemed style.',
+      'There are no configurations applied for this example.',
+    ],
     style: {
-      color: 'sienna',
+      border: '1px solid slategray',
+      color: 'slategray',
+      padding: '16px',
     },
     themeSpec: {},
     theme: {},
     config: {},
   },
-  'simple-themed': {
+  {
     title: 'Simple themed',
     notes: ['line 1', 'line 2', 'line 3'],
     style: {
@@ -33,4 +38,4 @@ export const examples = {
       enableAtomicCss: true,
     },
   },
-};
+];
