@@ -1,17 +1,27 @@
 import {useEffect, useRef, useState} from 'react';
 import {createThemeRenderer} from 'uinix-theme';
+import {v4 as uuid} from 'uuid';
 
-export function Preview({options, style}) {
+export function Preview({example}) {
   const rendererRef = useRef();
 
   const [className, setClassName] = useState();
 
   useEffect(() => {
+    const {config = {}, style = {}, theme = {}, themeSpec = {}} = example;
+
+    const options = {
+      ...config,
+      namespace: `uuid-${uuid()}`,
+      theme,
+      themeSpec,
+    };
+
     rendererRef.current = createThemeRenderer(options);
     rendererRef.current.render();
 
     setClassName(rendererRef.current.renderStyle(style));
-  }, [options, style]);
+  }, [example]);
 
   return (
     <div className={className}>

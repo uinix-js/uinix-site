@@ -1,7 +1,15 @@
 import {CodeEditor} from '../ui/code-editor.js';
 
-export function Editor({options, style}) {
-  const json = JSON.stringify({options, style}, null, 2);
+export function Editor({example, onEdit}) {
+  const {config, style, theme, themeSpec} = example;
 
-  return <CodeEditor language="json" value={json} />;
+  const json = JSON.stringify({style, theme, themeSpec, config}, null, 2);
+
+  const handleChange = (updatedValue) => {
+    try {
+      onEdit(JSON.parse(updatedValue));
+    } catch {} // Swallow
+  };
+
+  return <CodeEditor language="json" value={json} onChange={handleChange} />;
 }

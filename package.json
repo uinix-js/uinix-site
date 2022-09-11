@@ -22,7 +22,8 @@
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
-    "uinix-ui": "uinix-js/uinix-ui"
+    "uinix-ui": "uinix-js/uinix-ui",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "eslint-config-xo-react": "^0.27.0",
