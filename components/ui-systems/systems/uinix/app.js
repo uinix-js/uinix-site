@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {createSystem} from 'uinix-ui';
 
+import {system as uinix} from '../../../../system/system.js';
 import {BrandText} from '../../../ui/brand-text.js';
 import {Layout} from '../../../ui/layout.js';
 import {Text} from '../../../ui/text.js';
@@ -17,20 +18,22 @@ const systems = {
   github,
   google,
   spotify,
+  uinix,
 };
 
 export function App() {
-  const [system, setSystem] = useState('');
   const [error, setError] = useState(null);
+  const [system, setSystem] = useState(null);
 
   const handleSelectSystem = (event) => {
     const selectedSystem = systems[event.target.value];
+    setError(null);
     setSystem(selectedSystem);
   };
 
   const handleUploadSystem = async (event) => {
     setError(null);
-    setSystem('');
+    setSystem(null);
     try {
       const text = await event.target.files[0].text();
       setSystem(createSystem(JSON.parse(text)));
@@ -43,14 +46,14 @@ export function App() {
     <Layout direction="column" p="m" spacing="l">
       <p>
         This entire site is built with the{' '}
-        <BrandText href="/packages/uinix-ui" text="uinix-ui" /> UI system. A UI
-        system that builds a system to preview other UI systems. How fun! 🤗
+        <BrandText enableLink text="uinix-ui" /> UI system. A UI system that
+        builds a system to preview other UI systems. How fun! 🤗
       </p>
       <p>
-        <BrandText href="/packages/uinix-ui" text="uinix-ui" /> enables rapid UI
-        development, and also provides simple ways to define/manage/access your
-        system knowledge. Upload a valid <code>system.json</code> file select a
-        UI system to visualize its system knowledge.
+        <BrandText enableLink text="uinix-ui" /> enables rapid UI development,
+        and also provides simple ways to define/manage/access your system
+        knowledge. Upload a valid <code>system.json</code> file or select a UI
+        system to visualize its system knowledge.
       </p>
       <Layout align="center" spacing="m">
         <select value={system} onChange={handleSelectSystem}>
@@ -69,8 +72,7 @@ export function App() {
         {error && (
           <Text color="text.error">
             Unable to parse system JSON. Please ensure that a valid system is
-            provided. Refer to the{' '}
-            <BrandText href="/packages/uinix-ui" text="uinix-ui" />{' '}
+            provided. Refer to the <BrandText enableLink text="uinix-ui" />{' '}
             documentation for details.
           </Text>
         )}

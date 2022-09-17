@@ -37,8 +37,7 @@ export function Preview({example}) {
       </p>
       <p id="playground">
         In this playground, you can explore and learn about{' '}
-        <BrandText href="/packages/uinix-theme" text="uinix-theme" />{' '}
-        interactively.
+        <BrandText enableLink text="uinix-theme" /> interactively.
       </p>
       <p data-attribute="preview">
         This panel previews the resolved CSS styles applied by examples on the

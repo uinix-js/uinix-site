@@ -1,7 +1,7 @@
 import {Link} from './link.js';
 import {Text} from './text.js';
 
-export function BrandText({href, text = 'uinix-js', title}) {
+export function BrandText({enableLink = false, text = 'uinix-js', title}) {
   const parts = text.split(/^(ui)(nix)(-?[\w-]*)$/);
 
   if (parts.length === 1) {
@@ -9,6 +9,12 @@ export function BrandText({href, text = 'uinix-js', title}) {
   }
 
   const [_head, ui, nix, rest] = parts;
+
+  const href = enableLink
+    ? text === 'uinix-js'
+      ? '/'
+      : `/packages/${text}`
+    : undefined;
 
   return (
     <Link href={href} title={title}>

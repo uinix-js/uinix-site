@@ -33,7 +33,7 @@ export function NavLinks() {
 
   const rootLink = (
     <li>
-      <BrandText href="/" title="Back to home" />
+      <BrandText enableLink title="Back to home" />
     </li>
   );
 

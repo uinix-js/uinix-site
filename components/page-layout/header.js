@@ -8,7 +8,7 @@ export function Header() {
   return (
     <Layout as="header" align="center" flex="none" py="s" spacing="m">
       <Text fontSize="l">
-        <BrandText href="/" />
+        <BrandText enableLink />
       </Text>
       <Navbar />
       <GithubLink href="https://github.com/uinix-js" />
