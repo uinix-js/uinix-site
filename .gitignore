@@ -1,14 +1,13 @@
 .DS_Store
 *.d.ts
 *.log
-coverage/
-dist/
-node_modules/
 package-lock.json
+node_modules/
 
 # project
 .next
 todo.md
+out/
 
 # generated
 pages/packages/**/readme.md
