@@ -117,6 +117,8 @@ const global = {
     backgroundColor: 'background.wash',
     fontFamily: 'code',
     fontSize: 's',
+    maxHeight: '1000px',
+    overflowY: 'auto',
     whiteSpace: 'pre-wrap',
   },
   select: rules.input,

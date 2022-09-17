@@ -1,9 +1,12 @@
-import {useState} from 'react';
-import {createSystem} from 'uinix-ui';
+import {createElement as h, useState} from 'react';
+import {merge} from 'uinix-fp';
+import {createSystem, load} from 'uinix-ui';
 
-import {system as uinix} from '../../../../system/system.js';
+import {config as defaultConfig} from '../../../../system/config.js';
+import {system as defaultSystem} from '../../../../system/system.js';
 import {BrandText} from '../../../ui/brand-text.js';
 import {Layout} from '../../../ui/layout.js';
+import {Select} from '../../../ui/select.js';
 import {Text} from '../../../ui/text.js';
 import {SystemKnowledge} from '../../system-knowledge.js';
 import {system as apple} from '../apple/system/system.js';
@@ -18,22 +21,33 @@ const systems = {
   github,
   google,
   spotify,
-  uinix,
+  uinix: defaultSystem,
 };
 
 export function App() {
   const [error, setError] = useState(null);
+  const [systemValue, setSystemValue] = useState(null);
   const [system, setSystem] = useState(null);
 
-  const handleSelectSystem = (event) => {
-    const selectedSystem = systems[event.target.value];
+  const handleSelectSystem = (updatedSystemValue) => {
+    const updatedSystem = systems[updatedSystemValue];
     setError(null);
-    setSystem(selectedSystem);
+    setSystem(updatedSystem);
+    setSystemValue(updatedSystemValue);
+
+    // TODO: uinix-ui to support namespaced systems.  In the meantime, manually merge and load appropriately.
+    const mergedIcons = merge(defaultSystem.icons)(updatedSystem.icons);
+    load({
+      h,
+      config: defaultConfig,
+      system: {...defaultSystem, icons: mergedIcons},
+    });
   };
 
   const handleUploadSystem = async (event) => {
     setError(null);
     setSystem(null);
+    setSystemValue(null);
     try {
       const text = await event.target.files[0].text();
       setSystem(createSystem(JSON.parse(text)));
@@ -56,14 +70,16 @@ export function App() {
         system to visualize its system knowledge.
       </p>
       <Layout align="center" spacing="m">
-        <select value={system} onChange={handleSelectSystem}>
-          <option value="">Select a system</option>
-          {Object.keys(systems).map((key) => (
-            <option key={key} value={key}>
-              {key}
-            </option>
-          ))}
-        </select>
+        <Select
+          enableNullValue
+          value={systemValue}
+          options={Object.keys(systems).map((key) => ({
+            label: key,
+            value: key,
+          }))}
+          placeholder="Select a system"
+          onChange={handleSelectSystem}
+        />
         <div>or</div>
         <input type="file" onChange={handleUploadSystem} />
       </Layout>

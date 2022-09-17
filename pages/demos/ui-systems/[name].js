@@ -73,6 +73,19 @@ export default function Page({name}) {
   if (demo) {
     const {App, referenceDate, src, system, url} = demo;
     switch (view) {
+      case 'source-code':
+        contents = (
+          <p>
+            View the source code for this demo on{' '}
+            <a
+              href={`https://github.com/uinix-js/uinix-site/tree/main/components/ui-systems/systems/${name}`}
+            >
+              Github
+            </a>
+            .
+          </p>
+        );
+        break;
       case 'system-knowledge':
         contents = <SystemKnowledge system={system} />;
         break;
@@ -105,7 +118,8 @@ export default function Page({name}) {
 
   const options = [
     {label: 'Demo', value: 'demo'},
-    {label: 'System Knowledge', value: 'system-knowledge'},
+    {label: 'System knowledge', value: 'system-knowledge'},
+    {label: 'Source code', value: 'source-code'},
   ].concat(demo?.src ? [{label: 'Snapshot', value: 'snapshot'}] : []);
 
   return (
