@@ -1,16 +1,19 @@
 import {useEffect, useRef, useState} from 'react';
+import {merge} from 'uinix-fp';
 import {createThemeRenderer} from 'uinix-theme';
 
 import {BrandText} from '../ui/brand-text.js';
+
+let resolvedStyle;
 
 export function Preview({example}) {
   const rendererRef = useRef();
 
   const [className, setClassName] = useState();
 
-  useEffect(() => {
-    const {config = {}, style = {}, theme = {}, themeSpec = {}} = example;
+  const {config = {}, style = {}, theme = {}, themeSpec = {}} = example;
 
+  useEffect(() => {
     const options = {
       ...config,
       namespace: 'playground',
@@ -18,30 +21,35 @@ export function Preview({example}) {
       themeSpec,
     };
 
+    resolvedStyle = merge(style)({});
+
     rendererRef.current = createThemeRenderer(options);
     rendererRef.current.render();
 
-    setClassName(rendererRef.current.renderStyle(style));
-  }, [example]);
+    rendererRef.current.renderStaticStyles({});
+    setClassName(rendererRef.current.renderStyle(resolvedStyle));
+  }, [config, theme, themeSpec, style]);
 
   return (
     <div className={className}>
       <p>
         <strong>Welcome to the Theme Playground!</strong>
       </p>
-      <p>
-        In this playground, you can explore{' '}
-        <BrandText href="/packages/uinix-theme" text="uinix-theme" /> features
+      <p id="playground">
+        In this playground, you can explore and learn about{' '}
+        <BrandText href="/packages/uinix-theme" text="uinix-theme" />{' '}
         interactively.
       </p>
-      <p>
-        This panel previews the rendered CSS styles (<code>{className}</code>)
-        applied by examples on the right. You may edit the example to further
-        explore features through code.{' '}
+      <p data-attribute="preview">
+        This panel previews the resolved CSS styles applied by examples on the
+        right. Edit the examples or preview the styles in the DOM inspector to
+        explore further.
       </p>
-      <p>
-        <em>Have fun!</em>
-      </p>
+      {className && (
+        <pre>
+          .{className} {JSON.stringify(resolvedStyle, null, 2)}
+        </pre>
+      )}
     </div>
   );
 }

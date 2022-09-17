@@ -18,7 +18,12 @@ export function ThemePlayground() {
     setExample(examples[exampleIndex]);
   }, [exampleIndex]);
 
-  const handleEdit = (updatedValue) => {
+  const handleSelectExample = (updatedExampleIndex) => {
+    setExampleIndex(updatedExampleIndex);
+    setIsEditing(false);
+  };
+
+  const handleEditExample = (updatedValue) => {
     setExample((previousExample) => ({
       ...previousExample,
       ...updatedValue,
@@ -34,23 +39,18 @@ export function ThemePlayground() {
           <Preview example={example} />
         </Card>
         <Card flex="1">
-          <Layout direction="column" h="100%" spacing="m">
-            <Layout align="center" justify="space-between" spacing="m">
-              <label>
-                Browse examples:{' '}
-                <Select
-                  placeholder="Select an example"
-                  options={exampleOptions}
-                  value={exampleIndex}
-                  onChange={setExampleIndex}
-                />
-              </label>
-              <button type="button" onClick={() => setIsEditing(!isEditing)}>
-                {isEditing ? 'Notes' : 'Edit'}
-              </button>
-            </Layout>
+          <Layout align="flex-start" direction="column" h="100%" spacing="l">
+            <Select
+              placeholder="Select an example"
+              options={exampleOptions}
+              value={exampleIndex}
+              onChange={handleSelectExample}
+            />
+            <button type="button" onClick={() => setIsEditing(!isEditing)}>
+              {isEditing ? 'Example notes' : 'Edit example'}
+            </button>
             {isEditing ? (
-              <Editor example={example} onEdit={handleEdit} />
+              <Editor example={example} onEdit={handleEditExample} />
             ) : (
               <details open>
                 <ul>
