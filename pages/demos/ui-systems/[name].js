@@ -103,16 +103,17 @@ export default function Page({name}) {
     window.scrollTo(0, 0);
   };
 
+  const options = [
+    {label: 'Demo', value: 'demo'},
+    {label: 'System Knowledge', value: 'system-knowledge'},
+  ].concat(demo?.src ? [{label: 'Snapshot', value: 'snapshot'}] : []);
+
   return (
     <Layout direction="column" spacing="l">
       <Element as="label">
         View:{' '}
         <Select
-          options={[
-            {label: 'Demo', value: 'demo'},
-            {label: 'Snapshot', value: 'snapshot'},
-            {label: 'System Knowledge', value: 'system-knowledge'},
-          ]}
+          options={options}
           placeholder="Select a view"
           value={view}
           onChange={handleUpdateView}

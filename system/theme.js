@@ -30,6 +30,7 @@ const colors = {
   brand: shared.colors,
   text: {
     body: 'black',
+    error: 'red',
     link: shared.colors.primary,
   },
 };
