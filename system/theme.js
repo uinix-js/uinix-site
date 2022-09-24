@@ -1,5 +1,3 @@
-import {createTheme} from 'uinix-ui';
-
 const shared = {
   colors: {
     primary: 'sienna',
@@ -95,7 +93,7 @@ const zIndices = {
   forward: 1,
 };
 
-export const theme = createTheme({
+export const theme = {
   borders,
   borderWidths,
   colors,
@@ -108,4 +106,4 @@ export const theme = createTheme({
   spacings,
   transitions,
   zIndices,
-});
+};

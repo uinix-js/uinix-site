@@ -7,7 +7,7 @@ import {User} from '../user.js';
 const actionsClassName = 'actions';
 
 export function ChannelItem({channel, isActive, onSelect}) {
-  const styleRules = useStyles();
+  const styles = useStyles();
 
   const {hasNotification, id, name, type} = channel;
   const isTextChannel = type === 'text';
@@ -25,14 +25,18 @@ export function ChannelItem({channel, isActive, onSelect}) {
           mx="s"
           p="s"
           spacing="s"
-          styles={[styleRules.flexFit, styleRules.hover, styles.hoverActions]}
+          styles={[
+            styles.rules.flexFit,
+            styles.rules.hover,
+            componentStyles.hoverActions,
+          ]}
           onClick={() => onSelect(id)}
         >
           <Layout
             align="center"
             flex="auto"
             spacing="s"
-            styles={styleRules.flexFit}
+            styles={styles.rules.flexFit}
           >
             <Icon color="text.muted" icon={icon} size="icon.m" />
             <Text truncate color={textColor} variant="channelName">
@@ -45,7 +49,7 @@ export function ChannelItem({channel, isActive, onSelect}) {
             color="channel.default"
             flex="none"
             spacing="s"
-            styles={styles.actions}
+            styles={componentStyles.actions}
           >
             <Icon icon="invite" size="icon.s" onClick={noop} />
             <Icon icon="settings" size="icon.s" onClick={noop} />
@@ -61,7 +65,7 @@ export function ChannelItem({channel, isActive, onSelect}) {
   );
 }
 
-const styles = {
+const componentStyles = {
   hoverActions: {
     [`:hover .${actionsClassName}`]: {
       display: 'flex',

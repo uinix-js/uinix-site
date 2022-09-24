@@ -12,7 +12,7 @@ export function Repeat() {
     <Icon
       icon={isRepeatingOnce ? 'repeatOne' : 'repeat'}
       size="icon.m"
-      styles={isRepeating ? styles.iconBadge : null}
+      styles={isRepeating ? styles.rules.iconBadge : null}
       styleProps={{
         isActive: isRepeating,
       }}

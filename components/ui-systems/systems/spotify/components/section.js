@@ -20,10 +20,10 @@ export function Section({
           <Text as="h2" variant={titleVariant}>
             {title}
           </Text>
-          {description && <Text variant="m">{description}</Text>}
+          {description && <Text variant="text.m">{description}</Text>}
         </Layout>
         {showMore && (
-          <Text as="a" color="text.secondary" href="#top" variant="caps">
+          <Text as="a" color="text.secondary" href="#top" variant="text.caps">
             {showMore}
           </Text>
         )}

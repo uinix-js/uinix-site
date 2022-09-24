@@ -19,9 +19,7 @@ The `Box` component is [popularized][theme-ui-box] by libraries such as [rebass]
 To support [shorthand style props][theme-ui-shorthand-style-props], let us first configure them for the `uinix-ui` `Element` component.
 
 ```js
-import {createConfig} from 'uinix-ui';
-
-const config = createConfig({
+const config = {
   elementShorthandPropsMapping: {
     backgroundColor: ['bg'],
     color: ['color'],
@@ -36,7 +34,7 @@ const config = createConfig({
     paddingRight: ['pr', 'px', 'p'],
     paddingTop: ['pt', 'py', 'p'],
   },
-});
+};
 ```
 
 > **Note:** We can further configure other shorthand props by simply defining them in `config.elementShorthandPropsMapping`.  One may find this useful to implement other shorthand props that were previously provided by [rebass] (e.g. `height`, `width`), or to simply define new style props that fit your needs.  `uinix-ui` allows this to be fully configurable.
@@ -200,8 +198,6 @@ Say we would like to enforce the following shared style behaviors for `Box` (and
 We will define the following *style functions* in `config.elementStyles`:
 
 ```js
-import {createConfig} from 'uinix-ui';
-
 const styles = { // this maybe organized in another shared file
   active: ({active}) => active ? {
     backgroundColor: 'blue',

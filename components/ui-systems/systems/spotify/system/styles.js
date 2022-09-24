@@ -1,7 +1,3 @@
-import {createStyles} from 'uinix-ui';
-
-import {typography} from './typography.js';
-
 const rules = {
   footerSection: {
     minWidth: 'width.footerSection',
@@ -34,13 +30,23 @@ const rules = {
   },
 };
 
-const global = {
+const staticStyles = {
   '*': {
     boxSizing: 'border-box',
   },
+  a: {
+    color: 'text.primary',
+  },
+  'a:hover': {
+    opacity: 'visible',
+    cursor: 'pointer',
+  },
   body: {
     backgroundColor: 'background.gray4',
-    ...typography.body,
+    color: 'text.secondary',
+    fontFamily: 'body',
+    letterSpacing: 'normal',
+    '-mozOsxFontSmoothing': 'grayscale',
   },
   button: {
     backgroundColor: 'brand.primary',
@@ -58,9 +64,11 @@ const global = {
   'button:hover': {
     backgroundColor: 'hover.primary',
   },
-  'a:hover': {
-    opacity: 'visible',
-    cursor: 'pointer',
+  code: {
+    backgroundColor: 'background.gray1',
+  },
+  'h1, h2, h3, h4, h5, h6': {
+    margin: 0,
   },
   '[title]:hover::before': {
     content: 'none',
@@ -83,11 +91,54 @@ const variants = {
       },
     }),
   },
+  text: {
+    caps: {
+      fontSize: 's',
+      fontWeight: 'bold',
+      letterSpacing: 'caps',
+      lineHeight: 's',
+      textTransform: 'uppercase',
+    },
+    nav: {
+      color: 'text.secondary',
+      fontSize: 'm',
+      fontWeight: 'bold',
+      lineHeight: 's',
+      transition: 'default',
+      ':hover': {
+        color: 'text.primary',
+      },
+    },
+    xs: {
+      fontSize: 'xs',
+      lineHeight: 's',
+    },
+    s: {
+      fontSize: 's',
+      fontWeight: 'normal',
+      lineHeight: 's',
+    },
+    m: {
+      fontSize: 'm',
+      lineHeight: 'm',
+    },
+    xl: {
+      color: 'text.primary',
+      fontSize: 'xl',
+      fontWeight: 'bold',
+      lineHeight: 'l',
+    },
+    xxl: {
+      color: 'text.primary',
+      fontSize: 'xxl',
+      fontWeight: 'bold',
+      lineHeight: 'l',
+    },
+  },
 };
 
-export const styles = createStyles({
-  ...rules,
-  global,
-  typography,
+export const styles = {
+  rules,
+  static: staticStyles,
   variants,
-});
+};

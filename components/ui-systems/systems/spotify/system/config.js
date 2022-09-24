@@ -1,6 +1,4 @@
-import {createConfig} from 'uinix-ui';
-
-export const config = createConfig({
+export const config = {
   elementShorthandPropsMapping: {
     backgroundColor: ['bg'],
     borderRadius: ['borderRadius'],
@@ -54,4 +52,4 @@ export const config = createConfig({
   ],
   enableCssVariables: true,
   namespace: 'spotify',
-});
+};

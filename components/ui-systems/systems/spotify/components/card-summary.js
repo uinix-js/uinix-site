@@ -20,7 +20,7 @@ export function CardSummary({imgSrc, title}) {
           color="text.primary"
           fontWeight="bold"
           href="#top"
-          variant="m"
+          variant="text.m"
         >
           {title}
         </Text>

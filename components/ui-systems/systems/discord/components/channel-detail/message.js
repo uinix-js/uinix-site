@@ -14,7 +14,7 @@ export function Message({message}) {
       px="l"
       py="s"
       spacing="s"
-      styles={styles.hover}
+      styles={styles.rules.hover}
     >
       <Layout align="center" flex="none" spacing="s">
         <Text variant="messageTime">{at}</Text>

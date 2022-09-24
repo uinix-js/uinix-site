@@ -25,15 +25,15 @@ export function Button({
         {icon && <Icon icon={icon} size="icon.m" />}
         <Text
           pr={hasCount ? 's' : undefined}
-          styles={onExpand ? styles.caret : null}
-          variant="button"
+          styles={onExpand ? styles.rules.caret : null}
+          variant="button.text"
         >
           {text}
         </Text>
       </Layout>
       {count && (
         <Layout align="center" bl="bordered" pl="s">
-          <Text variant="button">{count}</Text>
+          <Text variant="button.text">{count}</Text>
         </Layout>
       )}
     </Layout>

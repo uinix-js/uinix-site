@@ -63,7 +63,7 @@ function Icons({icons}) {
   const styles = useStyles();
 
   return (
-    <Element styles={styles.grid} styleProps={{columns: 5}}>
+    <Element styles={styles.rules.grid} styleProps={{columns: 5}}>
       {Object.keys(icons).map((icon) => (
         <Token key={icon} label={icon}>
           <Icon icon={icon} size="24px" />

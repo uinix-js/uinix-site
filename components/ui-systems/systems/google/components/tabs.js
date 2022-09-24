@@ -22,7 +22,7 @@ export function Tabs() {
                   py="x2"
                   spacing="x1"
                   styleProps={{isSelected: selectedTab === tab}}
-                  styles={styles.selectedTab}
+                  styles={styles.rules.selectedTab}
                   onClick={() => setSelectedTab(tab)}
                 >
                   <Icon icon={icon} size="icon.s" />
@@ -31,7 +31,7 @@ export function Tabs() {
               );
             })}
           </Layout>
-          <Layout spacing="x6" styles={styles.selectedTab}>
+          <Layout spacing="x6" styles={styles.rules.selectedTab}>
             <Text variant="google" onClick={noop}>
               Settings
             </Text>

@@ -1,5 +1,3 @@
-import {createTheme} from 'uinix-ui';
-
 const borderStyles = {
   solid: 'solid',
 };
@@ -40,7 +38,7 @@ const colors = {
   },
 };
 
-export const theme = createTheme({
+export const theme = {
   borderStyles,
   borderWidths,
   borders: {
@@ -144,4 +142,4 @@ export const theme = createTheme({
     x34: '136px',
     x35: '140px',
   },
-});
+};

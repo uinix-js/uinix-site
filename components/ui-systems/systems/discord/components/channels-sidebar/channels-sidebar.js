@@ -24,7 +24,12 @@ export function ChannelsSidebar() {
       >
         uinix-ui
       </Layout>
-      <Layout direction="column" py="l" spacing="m" styles={styles.scrollable}>
+      <Layout
+        direction="column"
+        py="l"
+        spacing="m"
+        styles={styles.rules.scrollable}
+      >
         {channelGroups.map((channelGroup) => (
           <ChannelGroup key={channelGroup.name} channelGroup={channelGroup} />
         ))}

@@ -14,7 +14,7 @@ export function Header() {
         onClick={noop}
       >
         <Icon icon="user" size="icon.m" variant="icon.interactive" />
-        <Text color="text.primary" fontWeight="bold" variant="m">
+        <Text color="text.primary" fontWeight="bold" variant="text.m">
           John Doe
         </Text>
         <Icon icon="arrowDown" size="icon.m" variant="icon.interactive" />

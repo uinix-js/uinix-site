@@ -14,7 +14,7 @@ export function File({file}) {
       px="m"
       py="s"
       spacing="m"
-      styles={styles.hover}
+      styles={styles.rules.hover}
     >
       <Icon color={iconColor} icon={type} size="icon.m" />
       <Text

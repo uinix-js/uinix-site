@@ -8,13 +8,19 @@ export function SongPlaying({artist, song}) {
   const styles = useStyles();
 
   return (
-    <Layout align="center" spacing="m" styles={styles.footerSection}>
+    <Layout align="center" spacing="m" styles={styles.rules.footerSection}>
       <Cover size="s" />
       <Layout truncate direction="column">
-        <Text truncate as="a" href="#top" variant="s">
+        <Text truncate as="a" href="#top" variant="text.s">
           {song}
         </Text>
-        <Text truncate as="a" color="text.secondary" href="#top" variant="xs">
+        <Text
+          truncate
+          as="a"
+          color="text.secondary"
+          href="#top"
+          variant="text.xs"
+        >
           {artist}
         </Text>
       </Layout>

@@ -1,8 +1,4 @@
-import {createStyles} from 'uinix-ui';
-
 import 'github-markdown-css/github-markdown-light.css';
-
-import {typography} from './typography.js';
 
 const rules = {
   caret: {
@@ -27,12 +23,24 @@ const rules = {
   },
 };
 
-const global = {
+const staticStyles = {
   '*': {
     boxSizing: 'border-box',
   },
   body: {
     backgroundColor: 'background.primary',
+    color: 'text.primary',
+    fontFamily: 'body',
+    fontSize: 'body',
+    lineHeight: 'body',
+    '-mozOsxFontSmoothing': 'unset',
+  },
+  a: {
+    color: 'text.blue',
+  },
+  'a:hover': {
+    textDecoration: 'underline',
+    opacity: 1,
   },
   button: {
     border: 'bordered',
@@ -43,9 +51,9 @@ const global = {
     fontWeight: 'medium',
     minHeight: 'height.button',
   },
-  'a:hover': {
-    textDecoration: 'underline',
-    opacity: 1,
+  'h1, h2, h3, h4, h5, h6': {
+    margin: 0,
+    padding: 0,
   },
   hr: {
     borderBottom: 'bordered',
@@ -76,11 +84,9 @@ const variants = {
         backgroundColor: 'hover.success',
       },
     },
-  },
-  nav: {
-    unset: {
-      margin: 'unset',
-      padding: 'unset',
+    text: {
+      fontSize: 'small',
+      fontWeight: 'medium',
     },
   },
   layout: {
@@ -90,11 +96,69 @@ const variants = {
       width: '100%',
     },
   },
+  link: {
+    color: 'text.tertiary',
+    cursor: 'pointer',
+    ':hover': {
+      color: 'text.blue',
+    },
+  },
+  linkBold: {
+    color: 'text.primary',
+    cursor: 'pointer',
+    fontWeight: 'bold',
+    ':hover': {
+      color: 'text.blue',
+    },
+  },
+  linkText: {
+    cursor: 'pointer',
+    ':hover': {
+      color: 'text.blue',
+    },
+  },
+  nav: {
+    unset: {
+      margin: 'unset',
+      padding: 'unset',
+    },
+  },
+  navItem: {
+    fontSize: 'body',
+    lineHeight: 'navItem',
+  },
+  pill: {
+    backgroundColor: 'background.blueWash',
+    borderRadius: 'pill',
+    color: 'text.blue',
+    cursor: 'pointer',
+    fontSize: 's',
+    paddingBottom: 'xxs',
+    paddingLeft: 'pill.x',
+    paddingRight: 'pill.x',
+    paddingTop: 'xxs',
+    ':hover': {
+      backgroundColor: 'hover.blueWash',
+    },
+  },
+  small: {
+    color: 'text.secondary',
+    fontSize: 'small',
+  },
+  subtitle: {
+    color: 'text.primary',
+    fontSize: 'subtitle',
+  },
+  title: {
+    color: 'text.primary',
+    fontWeight: 'normal',
+    fontSize: 'title',
+    whiteSpace: 'nowrap',
+  },
 };
 
-export const styles = createStyles({
-  ...rules,
-  global,
-  typography,
+export const styles = {
+  rules,
+  static: staticStyles,
   variants,
-});
+};

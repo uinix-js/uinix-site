@@ -8,7 +8,7 @@ export function CardList({cards, columns = 3}) {
   const styles = useStyles();
 
   return (
-    <Element styles={styles.grid} styleProps={{columns}}>
+    <Element styles={styles.rules.grid} styleProps={{columns}}>
       {cards.map(({href, title}) => (
         <Card key={href} href={href}>
           <BrandText text={title} />

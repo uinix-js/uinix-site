@@ -15,7 +15,7 @@ export function MembersSidebar() {
       px="m"
       py="l"
       spacing="l"
-      styles={styles.scrollable}
+      styles={styles.rules.scrollable}
       w="width.sidebar.members"
     >
       {memberGroups.map(({name, members}) => (
@@ -29,7 +29,7 @@ export function MembersSidebar() {
               borderRadius="l"
               px="s"
               py="xxs"
-              styles={styles.hover}
+              styles={styles.rules.hover}
             >
               <User user={user} size="m" />
             </Element>

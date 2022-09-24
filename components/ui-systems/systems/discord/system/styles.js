@@ -1,7 +1,3 @@
-import {createStyles} from 'uinix-ui';
-
-import {typography} from './typography.js';
-
 const rules = {
   flexFit: {
     minWidth: 0,
@@ -20,12 +16,20 @@ const rules = {
   }),
 };
 
-const global = {
+const staticStyles = {
   '*': {
     boxSizing: 'border-box',
   },
+  a: {
+    color: 'text.link',
+  },
   body: {
     backgroundColor: 'background.tertiary',
+    color: 'text.normal',
+    fontSize: 'body',
+    lineHeight: 'l',
+    textRendering: 'optimizeLegibility',
+    '-mozOsxFontSmoothing': 'unset',
   },
   button: {
     backgroundColor: 'brand.blurple',
@@ -39,6 +43,7 @@ const global = {
     paddingLeft: 'm',
     paddingRight: 'm',
     paddingTop: 's',
+    '-mozOsxFontSmoothing': 'unset',
     transition: 'color.default',
     ':hover': {
       backgroundColor: 'background.primaryHovered',
@@ -46,6 +51,27 @@ const global = {
   },
   'a:hover': {
     textDecoration: 'underline',
+  },
+  code: {
+    backgroundColor: 'background.secondary',
+    fontFamily: 'monospace',
+    color: 'header.secondary',
+  },
+  'h1, h2, h3, h4, h5, h6': {
+    margin: 0,
+  },
+  h1: {
+    color: 'header.primary',
+    fontSize: 'l',
+    fontWeight: 'bold',
+    lineHeight: 'l',
+  },
+  h2: {
+    color: 'channel.default',
+    fontSize: 'm',
+    fontWeight: 'bold',
+    lineHeight: 'm',
+    textTransform: 'uppercase',
   },
   hr: {
     borderColor: 'background.modifier.accent',
@@ -67,15 +93,23 @@ const global = {
 
 const variants = {
   button: {
-    primary: global.button,
+    primary: staticStyles.button,
     secondary: {
-      ...global.button,
+      ...staticStyles.button,
       backgroundColor: 'background.primary',
       color: 'interactive.active',
       lineHeight: 'm',
       ':hover': {
         backgroundColor: 'background.secondary',
       },
+    },
+  },
+  channelName: {
+    fontSize: 'body',
+    fontWeight: 'medium',
+    lineHeight: 'l',
+    ':hover': {
+      color: 'interactive.hover',
     },
   },
   input: {
@@ -98,11 +132,50 @@ const variants = {
       width: '100%',
     },
   },
+  message: {
+    fontSize: 'message.m',
+    lineHeight: 'message',
+  },
+  messageTime: {
+    color: 'text.muted',
+    fontSize: 'message.s',
+    fontWeight: 'medium',
+    lineHeight: 'message',
+  },
+  tag: {
+    backgroundColor: 'brand.blurple',
+    borderRadius: 's',
+    color: 'brand.fullWhite',
+    fontSize: 's',
+    paddingLeft: 'xs',
+    paddingRight: 'xs',
+    textTransform: 'uppercase',
+  },
+  server: {
+    fontSize: 'l',
+    fontWeight: 'bold',
+    lineHeight: 'l',
+  },
+  userMedium: {
+    fontSize: 'body',
+    fontWeight: 'medium',
+    lineHeight: 'm',
+  },
+  userLarge: {
+    fontSize: 'l',
+    fontWeight: 'medium',
+    lineHeight: 'l',
+  },
+  userActivity: {
+    color: 'channel.default',
+    fontSize: 's',
+    fontWeight: 'medium',
+    lineHeight: 's',
+  },
 };
 
-export const styles = createStyles({
-  ...rules,
-  global,
-  typography,
+export const styles = {
+  rules,
+  static: staticStyles,
   variants,
-});
+};

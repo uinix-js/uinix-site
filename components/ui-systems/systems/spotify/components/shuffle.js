@@ -9,7 +9,7 @@ export function Shuffle() {
     <Icon
       icon="shuffle"
       size="icon.m"
-      styles={isShuffling ? styles.iconBadge : null}
+      styles={isShuffling ? styles.rules.iconBadge : null}
       styleProps={{
         isActive: isShuffling,
       }}

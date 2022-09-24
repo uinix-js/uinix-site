@@ -9,7 +9,7 @@ export function Pagination() {
   const styles = useStyles();
 
   return (
-    <Layout styles={styles.selfCentered}>
+    <Layout styles={styles.rules.selfCentered}>
       <Alphabet color="blue" value="G" />
       {pages.map((pageIndex) => (
         <a key={pageIndex} href="#top">

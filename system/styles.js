@@ -1,7 +1,3 @@
-import {createStyles} from 'uinix-ui';
-
-const breakpoints = ['768px'];
-
 const shared = {
   interactive: {
     cursor: 'pointer',
@@ -58,7 +54,7 @@ const vendor = {
   },
 };
 
-const global = {
+const staticStyles = {
   '*': {
     boxSizing: 'border-box',
   },
@@ -131,9 +127,8 @@ const variants = {
   sticky: rules.sticky,
 };
 
-export const styles = createStyles({
-  breakpoints,
-  global,
+export const styles = {
+  rules,
+  static: staticStyles,
   variants,
-  ...rules,
-});
+};

@@ -8,7 +8,12 @@ export function Messages() {
   const styles = useStyles();
 
   return (
-    <Layout as="main" direction="column" flex="auto" styles={styles.scrollable}>
+    <Layout
+      as="main"
+      direction="column"
+      flex="auto"
+      styles={styles.rules.scrollable}
+    >
       {messages.map((message) => (
         <Message key={message.id} message={message} />
       ))}

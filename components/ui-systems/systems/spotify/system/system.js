@@ -1,3 +1,4 @@
+import themeSpec from 'uinix-theme-spec';
 import {createSystem} from 'uinix-ui';
 
 import {icons} from './icons.js';
@@ -8,4 +9,5 @@ export const system = createSystem({
   icons,
   styles,
   theme,
+  themeSpec,
 });

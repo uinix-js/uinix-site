@@ -9,7 +9,7 @@ export function Play({hasAccent}) {
     <Element
       p="s"
       styleProps={{hasAccent, isPaused}}
-      styles={styles.iconBackground}
+      styles={styles.rules.iconBackground}
       onClick={() => setIsPaused(!isPaused)}
     >
       <Icon color="inherit" icon={isPaused ? 'pause' : 'play'} size="icon.m" />

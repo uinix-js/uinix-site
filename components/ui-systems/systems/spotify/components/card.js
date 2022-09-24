@@ -23,11 +23,17 @@ export function Card({description, imgSrc, title}) {
           color="text.primary"
           fontWeight="bold"
           href="#top"
-          variant="m"
+          variant="text.m"
         >
           {title}
         </Text>
-        <Text truncate as="a" color="text.secondary" href="#top" variant="s">
+        <Text
+          truncate
+          as="a"
+          color="text.secondary"
+          href="#top"
+          variant="text.s"
+        >
           {description}
         </Text>
       </Layout>

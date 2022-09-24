@@ -1,5 +1,3 @@
-import {createTheme} from 'uinix-ui';
-
 const baseFontFamily =
   '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji';
 
@@ -48,7 +46,7 @@ const colors = {
   },
 };
 
-export const theme = createTheme({
+export const theme = {
   borders: {
     bordered: `${borderWidths.s} ${borderStyles.solid} ${colors.border.default}`,
   },
@@ -113,4 +111,4 @@ export const theme = createTheme({
       x: 12,
     },
   },
-});
+};

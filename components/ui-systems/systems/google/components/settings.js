@@ -5,7 +5,7 @@ export function Settings() {
   const styles = useStyles();
 
   return (
-    <Element borderRadius="round" p="x2" styles={styles.hover}>
+    <Element borderRadius="round" p="x2" styles={styles.rules.hover}>
       <Icon
         color="icon.default"
         icon="settings"

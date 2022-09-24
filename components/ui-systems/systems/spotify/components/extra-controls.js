@@ -10,7 +10,7 @@ export function ExtraControls() {
       align="center"
       justify="flex-end"
       spacing="m"
-      styles={styles.footerSection}
+      styles={styles.rules.footerSection}
     >
       <Icon icon="volume" size="icon.m" variant="icon.interactive" />
       <Progress max={10} value={4} width="width.volume" />

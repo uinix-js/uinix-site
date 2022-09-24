@@ -27,11 +27,12 @@ export const config = {
     width: ['w'],
   },
   elementStyles: [
-    ({disabled}) => (disabled ? styles.disabled : null),
-    ({onClick}) => (onClick ? styles.interactive : null),
+    ({disabled}) => (disabled ? styles.rules.disabled : null),
+    ({onClick}) => (onClick ? styles.rules.interactive : null),
   ],
   enableAtomicCss: false,
   enableCssVariables: true,
   namespace: 'uinix',
+  responsiveBreakpoints: ['768px'],
   responsiveCssProperties: ['gridTemplateColumns'],
 };
