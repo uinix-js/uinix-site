@@ -24,9 +24,9 @@ export function Preview({example}) {
     resolvedStyle = merge(style)({});
 
     rendererRef.current = createThemeRenderer(options);
-    rendererRef.current.render();
+    rendererRef.current.load();
 
-    rendererRef.current.renderStaticStyles({});
+    rendererRef.current.renderGlobalStyles({});
     setClassName(rendererRef.current.renderStyle(resolvedStyle));
   }, [config, theme, themeSpec, style]);
 

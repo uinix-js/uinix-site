@@ -1,7 +1,7 @@
 import {useRouter} from 'next/router';
 import {createElement as h, useEffect, useState} from 'react';
 import {merge} from 'uinix-fp';
-import {load} from 'uinix-ui';
+import {loadSystem} from 'uinix-ui';
 
 import {Element} from '../../../components/ui/element.js';
 import {Layout} from '../../../components/ui/layout.js';
@@ -51,7 +51,7 @@ export default function Page({name}) {
         );
 
         const {config, system} = demo;
-        unload = load({h, config, system: merge(defaultSystem)(system)});
+        unload = loadSystem({h, config, system: merge(defaultSystem)(system)});
 
         setDemo(demo);
       } catch (error) {

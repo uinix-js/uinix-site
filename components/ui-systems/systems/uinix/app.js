@@ -1,6 +1,6 @@
 import {createElement as h, useState} from 'react';
 import {merge} from 'uinix-fp';
-import {createSystem, load} from 'uinix-ui';
+import {createSystem, loadSystem} from 'uinix-ui';
 
 import {config as defaultConfig} from '../../../../system/config.js';
 import {system as defaultSystem} from '../../../../system/system.js';
@@ -37,7 +37,7 @@ export function App() {
 
     // TODO: uinix-ui to support namespaced systems.  In the meantime, manually merge and load appropriately.
     const mergedIcons = merge(defaultSystem.icons)(updatedSystem.icons);
-    load({
+    loadSystem({
       h,
       config: defaultConfig,
       system: {...defaultSystem, icons: mergedIcons},

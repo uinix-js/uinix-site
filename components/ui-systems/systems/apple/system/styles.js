@@ -1,6 +1,6 @@
 const rules = {};
 
-const staticStyles = {
+const global = {
   a: {
     color: 'interaction.link',
   },
@@ -143,7 +143,7 @@ const variants = {
 };
 
 export const styles = {
-  static: staticStyles,
+  global,
   rules,
   variants,
 };

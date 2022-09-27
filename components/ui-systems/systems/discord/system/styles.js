@@ -16,7 +16,7 @@ const rules = {
   }),
 };
 
-const staticStyles = {
+const global = {
   '*': {
     boxSizing: 'border-box',
   },
@@ -93,9 +93,9 @@ const staticStyles = {
 
 const variants = {
   button: {
-    primary: staticStyles.button,
+    primary: global.button,
     secondary: {
-      ...staticStyles.button,
+      ...global.button,
       backgroundColor: 'background.primary',
       color: 'interactive.active',
       lineHeight: 'm',
@@ -175,7 +175,7 @@ const variants = {
 };
 
 export const styles = {
+  global,
   rules,
-  static: staticStyles,
   variants,
 };

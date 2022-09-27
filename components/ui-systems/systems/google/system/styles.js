@@ -73,7 +73,7 @@ const variants = {
   },
 };
 
-const staticStyles = {
+const global = {
   '*': {
     boxSizing: 'border-box',
   },
@@ -128,7 +128,7 @@ const staticStyles = {
 };
 
 export const styles = {
+  global,
   rules,
-  static: staticStyles,
   variants,
 };
