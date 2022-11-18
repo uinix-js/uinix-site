@@ -6,8 +6,8 @@ export function Link({children, href, title}) {
   }
 
   return (
-    <NextLink href={href}>
-      <a title={title}>{children}</a>
+    <NextLink href={href} title={title}>
+      {children}
     </NextLink>
   );
 }

@@ -5,7 +5,7 @@ import {LOREM_IPSUM, LOREM_IPSUM_FULL} from '../data.js';
 
 export function Result({type = 'default'}) {
   switch (type) {
-    default:
+    default: {
       return (
         <Layout color="text.secondary" direction="column" spacing="x1">
           <a href="#top">
@@ -28,5 +28,6 @@ export function Result({type = 'default'}) {
           <div>{LOREM_IPSUM_FULL}</div>
         </Layout>
       );
+    }
   }
 }

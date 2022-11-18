@@ -24,20 +24,25 @@ export function Server({server, isActive, onSelect}) {
 
   let item;
   switch (type) {
-    case 'home':
+    case 'home': {
       item = <Icon icon={icon} size="icon.logo" />;
       break;
+    }
+
     case 'add':
     case 'download':
-    case 'explore':
+    case 'explore': {
       item = <Icon icon={icon} size="icon.l" />;
       break;
-    default:
+    }
+
+    default: {
       item = hasAvatar ? (
         <Avatar borderRadius="inherit" size="l" />
       ) : (
         <Text variant="server">{name[0]}</Text>
       );
+    }
   }
 
   let bg = 'background.primary';

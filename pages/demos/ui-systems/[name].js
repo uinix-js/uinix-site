@@ -1,7 +1,7 @@
 import {useRouter} from 'next/router';
 import {createElement as h, useEffect, useState} from 'react';
 import {merge} from 'uinix-fp';
-import {loadSystem} from 'uinix-ui';
+import {createSystem} from 'uinix-ui';
 
 import {Element} from '../../../components/ui/element.js';
 import {Layout} from '../../../components/ui/layout.js';
@@ -9,7 +9,7 @@ import {Select} from '../../../components/ui/select.js';
 import {SystemKnowledge} from '../../../components/ui-systems/system-knowledge.js';
 import {pages} from '../../../data/pages.js';
 import {system as defaultSystem} from '../../../system/system.js';
-import {loadSystem as loadDefaultSystem} from '../../../system/load-system.js';
+import {createSystem as createDefaultSystem} from '../../../system/load-system.js';
 
 export const getStaticPaths = () => {
   const paths = pages.demos.uiSystems.cards.map((card) => ({
@@ -43,7 +43,7 @@ export default function Page({name}) {
   const router = useRouter();
 
   useEffect(() => {
-    let unload;
+    let destroySystem;
     const loadDemo = async () => {
       try {
         const {demo} = await import(
@@ -51,7 +51,7 @@ export default function Page({name}) {
         );
 
         const {config, system} = demo;
-        unload = loadSystem({h, config, system: merge(defaultSystem)(system)});
+        destroySystem = createSystem({h, config, system: merge(defaultSystem)(system)});
 
         setDemo(demo);
       } catch (error) {
@@ -63,8 +63,8 @@ export default function Page({name}) {
 
     // Reset system global styles, reload default system, repush route
     return () => {
-      unload?.();
-      loadDefaultSystem();
+      destroySystem?.();
+      createDefaultSystem();
       router.reload(window.location.pathname);
     };
   }, [name, router]);
@@ -73,7 +73,7 @@ export default function Page({name}) {
   if (demo) {
     const {App, referenceDate, src, system, url} = demo;
     switch (view) {
-      case 'source-code':
+      case 'source-code': {
         contents = (
           <p>
             View the source code for this demo on{' '}
@@ -86,10 +86,14 @@ export default function Page({name}) {
           </p>
         );
         break;
-      case 'system-knowledge':
+      }
+
+      case 'system-knowledge': {
         contents = <SystemKnowledge system={system} />;
         break;
-      case 'snapshot':
+      }
+
+      case 'snapshot': {
         contents = (
           <Layout direction="column">
             <p>
@@ -100,8 +104,11 @@ export default function Page({name}) {
           </Layout>
         );
         break;
-      default:
+      }
+
+      default: {
         contents = <App />;
+      }
     }
   } else {
     contents = (

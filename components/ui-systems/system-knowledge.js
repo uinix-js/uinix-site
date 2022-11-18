@@ -20,20 +20,29 @@ export function SystemKnowledge({system}) {
 
   let contents;
   switch (selectedTab) {
-    case 'icons':
+    case 'icons': {
       contents = <Icons icons={icons} />;
       break;
-    case 'styles':
+    }
+
+    case 'styles': {
       contents = <pre>{JSON.stringify(styles, null, 2)}</pre>;
       break;
-    case 'system':
+    }
+
+    case 'system': {
       contents = <pre>{JSON.stringify(system, null, 2)}</pre>;
       break;
-    case 'theme':
+    }
+
+    case 'theme': {
       contents = <pre>{JSON.stringify(theme, null, 2)}</pre>;
       break;
-    default:
+    }
+
+    default: {
       break;
+    }
   }
 
   return (
