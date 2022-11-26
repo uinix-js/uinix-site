@@ -1,20 +1,19 @@
-import {Icon, Layout, useStyles} from 'uinix-ui';
+import {Icon, Layout} from 'uinix-ui';
 
+import {system} from '../system/system.js';
 import {Progress} from './progress.js';
 
 export function ExtraControls() {
-  const styles = useStyles();
-
   return (
     <Layout
       align="center"
       justify="flex-end"
       spacing="m"
-      styles={styles.rules.footerSection}
+      styles={system.styles.footerSection}
     >
-      <Icon icon="volume" size="icon.m" variant="icon.interactive" />
+      <Icon icon="volume" size="icon.m" styleVariant="icon.interactive" />
       <Progress max={10} value={4} width="width.volume" />
-      <Icon icon="fullscreen" size="icon.m" variant="icon.interactive" />
+      <Icon icon="fullscreen" size="icon.m" styleVariant="icon.interactive" />
     </Layout>
   );
 }

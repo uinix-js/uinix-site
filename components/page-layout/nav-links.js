@@ -1,8 +1,8 @@
 import {useRouter} from 'next/router';
 import {useMemo} from 'react';
 import {props} from 'uinix-fp';
-import {useTheme} from 'uinix-ui';
 
+import {system} from '../../system/system.js';
 import {useToc} from '../../hooks/use-toc.js';
 import {BrandText} from '../ui/brand-text.js';
 import {Layout} from '../ui/layout.js';
@@ -12,8 +12,6 @@ import {TocSelect} from './toc-select.js';
 export function NavLinks() {
   const {asPath} = useRouter();
 
-  const theme = useTheme();
-
   const pathname = asPath.split('#')[0];
 
   const tocOptions = useMemo(
@@ -21,9 +19,9 @@ export function NavLinks() {
       includeSelector: 'main',
       headings: ['h2', 'h3', 'h4'],
       id: pathname,
-      offsetY: props('spacings.offsets.navLinks.height')(theme),
+      offsetY: props('spacings.offsets.navLinks.height')(system.theme),
     }),
-    [pathname, theme],
+    [pathname],
   );
 
   const {activeHeadingId, permalink, toc} = useToc(tocOptions);
@@ -54,7 +52,7 @@ export function NavLinks() {
 
   return (
     hasSubpaths && (
-      <Layout wrap align="center" h="navLinks.height" variant="sticky.top">
+      <Layout wrap align="center" h="navLinks.height" styleVariant="sticky.top">
         <nav>
           <Layout wrap as="ol">
             {rootLink}

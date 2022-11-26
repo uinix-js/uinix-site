@@ -58,20 +58,23 @@ The `h` pattern is supported in many view libraries.  Some popular libraries are
 
 Please refer to **§ Frameworks** in `uinix-ui` on how to use **uinix-ui** in the respective [hyperscript]-based libraries.
 
-**uinix-ui** supports any [hyperscript]-based view library.  This is specified at a single instance when loading your system.
+**uinix-ui** supports any [hyperscript]-based view library.  This is specified at a single instance when creating your system.
 
 ```js
-import {createElement as h} from 'react';
-import {load} from 'uinix-ui';
+import {createElement} from 'react';
+import {createSystem} from 'uinix-ui';
 
-const config = {...};
-const system = {...};
+const system = {
+  config: {
+    // specify the `createElement` hyperscript method.
+    createElement,
+  },
+};
 
-// specify the h method when loading your system.
-load({h, config, system});
+createSystem({system});
 ```
 
-Building components will now use the specified/loaded `h` method.
+Building components will now use the provided `createElement` method.
 
 ## Caveats
 

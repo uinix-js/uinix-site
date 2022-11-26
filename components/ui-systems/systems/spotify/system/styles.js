@@ -1,7 +1,17 @@
-const rules = {
+export const styles = {
   footerSection: {
     minWidth: 'width.footerSection',
     width: '30%',
+  },
+  icon: {
+    interactive: ({color, isActive}) => ({
+      color: isActive ? 'brand.primary' : color || 'icon.default',
+      position: 'relative',
+      ':hover': {
+        color: isActive ? 'brand.primary' : color || 'icon.active',
+        backgroundColor: 'transparent',
+      },
+    }),
   },
   iconBackground: ({hasAccent}) => ({
     backgroundColor: hasAccent ? 'brand.primary' : 'brand.white',
@@ -27,69 +37,6 @@ const rules = {
       transform: 'translateXHalf',
       width: 'badge',
     },
-  },
-};
-
-const global = {
-  '*': {
-    boxSizing: 'border-box',
-  },
-  a: {
-    color: 'text.primary',
-  },
-  'a:hover': {
-    opacity: 'visible',
-    cursor: 'pointer',
-  },
-  body: {
-    backgroundColor: 'background.gray4',
-    color: 'text.secondary',
-    fontFamily: 'body',
-    letterSpacing: 'normal',
-    '-mozOsxFontSmoothing': 'grayscale',
-  },
-  button: {
-    backgroundColor: 'brand.primary',
-    border: 'none',
-    borderRadius: 'pill',
-    fontSize: 'l',
-    fontWeight: 'bold',
-    color: 'text.primary',
-    paddingBottom: 's',
-    paddingLeft: 'l',
-    paddingRight: 'l',
-    paddingTop: 's',
-    transition: 'default',
-  },
-  'button:hover': {
-    backgroundColor: 'hover.primary',
-  },
-  code: {
-    backgroundColor: 'background.gray1',
-  },
-  'h1, h2, h3, h4, h5, h6': {
-    margin: 0,
-  },
-  '[title]:hover::before': {
-    content: 'none',
-  },
-  ul: {
-    listStyleType: 'none',
-    margin: 0,
-    padding: 0,
-  },
-};
-
-const variants = {
-  icon: {
-    interactive: ({color, isActive}) => ({
-      color: isActive ? 'brand.primary' : color || 'icon.default',
-      position: 'relative',
-      ':hover': {
-        color: isActive ? 'brand.primary' : color || 'icon.active',
-        backgroundColor: 'transparent',
-      },
-    }),
   },
   text: {
     caps: {
@@ -135,10 +82,4 @@ const variants = {
       lineHeight: 'l',
     },
   },
-};
-
-export const styles = {
-  global,
-  rules,
-  variants,
 };

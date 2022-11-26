@@ -1,11 +1,11 @@
 import {noop} from 'uinix-fp';
-import {Element, Icon, useStyles} from 'uinix-ui';
+import {Element, Icon} from 'uinix-ui';
+
+import {system} from '../system/system.js';
 
 export function Settings() {
-  const styles = useStyles();
-
   return (
-    <Element borderRadius="round" p="x2" styles={styles.rules.hover}>
+    <Element borderRadius="round" p="x2" styles={system.styles.hover}>
       <Icon
         color="icon.default"
         icon="settings"

@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 
 import {FullPageLayout} from '../components/page-layout/full-page-layout.js';
 import {PageLayout} from '../components/page-layout/page-layout.js';
-import {createSystem} from '../system/load-system.js';
+import {createSystem} from '../system/create-system.js';
 
 import '@code-hike/mdx/dist/index.css';
 

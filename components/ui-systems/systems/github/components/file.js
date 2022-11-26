@@ -1,8 +1,8 @@
-import {Icon, Layout, Text, useStyles} from 'uinix-ui';
+import {Icon, Layout, Text} from 'uinix-ui';
+
+import {system} from '../system/system.js';
 
 export function File({file}) {
-  const styles = useStyles();
-
   const {type, name, commitMessage, at} = file;
   const href = `https://github.com/uinix-js/uinix-ui/tree/main/${name}`;
   const iconColor = type === 'directory' ? 'icon.directory' : 'icon.default';
@@ -14,7 +14,7 @@ export function File({file}) {
       px="m"
       py="s"
       spacing="m"
-      styles={styles.rules.hover}
+      styles={system.styles.hover}
     >
       <Icon color={iconColor} icon={type} size="icon.m" />
       <Text
@@ -23,12 +23,12 @@ export function File({file}) {
         flex="none"
         href={href}
         color="text.primary"
-        variant="linkText"
+        styleVariant="linkText"
         w="20%"
       >
         {name}
       </Text>
-      <Text truncate as="a" flex="auto" href={href} variant="link">
+      <Text truncate as="a" flex="auto" href={href} styleVariant="link">
         {commitMessage}
       </Text>
       <Text

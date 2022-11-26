@@ -8,7 +8,7 @@ export function RelatedSearches() {
   return (
     <Layout direction="column" spacing="x6">
       <Layout align="center" spacing="x4">
-        <Text as="h3" fontFamily="google" variant="subtitle">
+        <Text as="h3" fontFamily="google" styleVariant="subtitle">
           Related searches
         </Text>
         <Icon

@@ -1,15 +1,15 @@
 import {useState} from 'react';
-import {Icon, Layout, useStyles} from 'uinix-ui';
+import {Icon, Layout} from 'uinix-ui';
 
+import {system} from '../system/system.js';
 import {pages} from '../data.js';
 import {Alphabet} from './alphabet.js';
 
 export function Pagination() {
   const [activePageIndex, setActivePageIndex] = useState(1);
-  const styles = useStyles();
 
   return (
-    <Layout styles={styles.rules.selfCentered}>
+    <Layout styles={system.styles.selfCentered}>
       <Alphabet color="blue" value="G" />
       {pages.map((pageIndex) => (
         <a key={pageIndex} href="#top">

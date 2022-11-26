@@ -1,36 +1,4 @@
-const rules = {
-  flexFit: {
-    minWidth: 0,
-    width: '100%',
-  },
-  hover: {
-    ':hover': {
-      backgroundColor: 'background.modifier.hover',
-    },
-  },
-  scrollable: ({scrollbarWidth = 'thin'}) => ({
-    height: 'height.viewport',
-    overflowX: 'hidden',
-    overflowY: 'auto',
-    scrollbarWidth,
-  }),
-};
-
-const global = {
-  '*': {
-    boxSizing: 'border-box',
-  },
-  a: {
-    color: 'text.link',
-  },
-  body: {
-    backgroundColor: 'background.tertiary',
-    color: 'text.normal',
-    fontSize: 'body',
-    lineHeight: 'l',
-    textRendering: 'optimizeLegibility',
-    '-mozOsxFontSmoothing': 'unset',
-  },
+const shared = {
   button: {
     backgroundColor: 'brand.blurple',
     border: 'none',
@@ -49,53 +17,13 @@ const global = {
       backgroundColor: 'background.primaryHovered',
     },
   },
-  'a:hover': {
-    textDecoration: 'underline',
-  },
-  code: {
-    backgroundColor: 'background.secondary',
-    fontFamily: 'monospace',
-    color: 'header.secondary',
-  },
-  'h1, h2, h3, h4, h5, h6': {
-    margin: 0,
-  },
-  h1: {
-    color: 'header.primary',
-    fontSize: 'l',
-    fontWeight: 'bold',
-    lineHeight: 'l',
-  },
-  h2: {
-    color: 'channel.default',
-    fontSize: 'm',
-    fontWeight: 'bold',
-    lineHeight: 'm',
-    textTransform: 'uppercase',
-  },
-  hr: {
-    borderColor: 'background.modifier.accent',
-    borderWidth: 'm',
-  },
-  summary: {
-    fontSize: 'title',
-  },
-  ul: {
-    listStyleType: 'none',
-    margin: 0,
-    padding: 0,
-  },
-  // Title tooltip
-  '[title]:hover::before': {
-    display: 'none',
-  },
 };
 
-const variants = {
+export const styles = {
   button: {
-    primary: global.button,
+    primary: shared.button,
     secondary: {
-      ...global.button,
+      ...shared.button,
       backgroundColor: 'background.primary',
       color: 'interactive.active',
       lineHeight: 'm',
@@ -110,6 +38,15 @@ const variants = {
     lineHeight: 'l',
     ':hover': {
       color: 'interactive.hover',
+    },
+  },
+  flexFit: {
+    minWidth: 0,
+    width: '100%',
+  },
+  hover: {
+    ':hover': {
+      backgroundColor: 'background.modifier.hover',
     },
   },
   input: {
@@ -151,6 +88,12 @@ const variants = {
     paddingRight: 'xs',
     textTransform: 'uppercase',
   },
+  scrollable: ({scrollbarWidth = 'thin'}) => ({
+    height: 'height.viewport',
+    overflowX: 'hidden',
+    overflowY: 'auto',
+    scrollbarWidth,
+  }),
   server: {
     fontSize: 'l',
     fontWeight: 'bold',
@@ -172,10 +115,4 @@ const variants = {
     fontWeight: 'medium',
     lineHeight: 's',
   },
-};
-
-export const styles = {
-  global,
-  rules,
-  variants,
 };

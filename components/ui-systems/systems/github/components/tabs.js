@@ -5,7 +5,7 @@ export function Tabs() {
   const [selectedTab, setSelectedTab] = useState('code');
 
   return (
-    <Layout as="ul" variant="nav.unset">
+    <Layout as="ul" styleVariant="nav.unset">
       {Object.entries(tabsData).map(([tab, {icon, label}]) => {
         const isSelected = selectedTab === tab;
         return (
@@ -26,7 +26,10 @@ export function Tabs() {
               icon={icon}
               size="icon.m"
             />
-            <Text fontWeight={isSelected ? 'bold' : 'normal'} variant="navItem">
+            <Text
+              fontWeight={isSelected ? 'bold' : 'normal'}
+              styleVariant="navItem"
+            >
               {label}
             </Text>
           </Layout>

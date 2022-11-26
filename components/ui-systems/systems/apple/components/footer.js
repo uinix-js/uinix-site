@@ -22,7 +22,7 @@ export function Footer() {
           <FooterLinkGroups />
         </Layout>
         <Layout direction="column" spacing="x2">
-          <Text color="text.light" variant="small">
+          <Text color="text.light" styleVariant="small">
             More ways to shop:{' '}
             <a href="https://www.apple.com/retail/">Find an Apple Store</a> or{' '}
             <a href="https://locate.apple.com/">other retailer</a> near you. Or
@@ -31,7 +31,7 @@ export function Footer() {
           <hr />
           <Layout align="center" justify="space-between" spacing="x4">
             <Layout align="center" spacing="x8">
-              <Text color="text.light" variant="small">
+              <Text color="text.light" styleVariant="small">
                 Copyright © 2021 Apple Inc. All rights reserved.
               </Text>
               <Layout align="center" spacing="x3">
@@ -42,7 +42,7 @@ export function Footer() {
                     br={i < siteLinks.length - 1 ? 'dark' : undefined}
                     href={href}
                     pr="x3"
-                    variant="textLink"
+                    styleVariant="textLink"
                   >
                     {title}
                   </Text>
@@ -52,7 +52,7 @@ export function Footer() {
             <Text
               as="a"
               href="https://www.apple.com/choose-country-region/"
-              variant="textLink"
+              styleVariant="textLink"
             >
               United States
             </Text>

@@ -19,7 +19,7 @@ export function Header() {
       spacing="l"
     >
       <Layout align="center" justify="space-between" spacing="m">
-        <Text as="h1" variant="title">
+        <Text as="h1" styleVariant="title">
           <Layout align="center" spacing="s">
             <Icon icon="repo" size="icon.m" />
             <a href={`https://github.com/${user}/`}>{user}</a>

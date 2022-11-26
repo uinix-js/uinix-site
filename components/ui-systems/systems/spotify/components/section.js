@@ -17,13 +17,18 @@ export function Section({
     <Layout as="section" direction="column" spacing="m">
       <Layout align="flex-end" justify="space-between">
         <Layout direction="column">
-          <Text as="h2" variant={titleVariant}>
+          <Text as="h2" styleVariant={titleVariant}>
             {title}
           </Text>
-          {description && <Text variant="text.m">{description}</Text>}
+          {description && <Text styleVariant="text.m">{description}</Text>}
         </Layout>
         {showMore && (
-          <Text as="a" color="text.secondary" href="#top" variant="text.caps">
+          <Text
+            as="a"
+            color="text.secondary"
+            href="#top"
+            styleVariant="text.caps"
+          >
             {showMore}
           </Text>
         )}

@@ -1,74 +1,4 @@
-import 'github-markdown-css/github-markdown-light.css';
-
-const rules = {
-  caret: {
-    '&::after': {
-      borderBottom: '0 solid transparent',
-      borderLeft: '4px solid transparent',
-      borderRight: '4px solid transparent',
-      borderTopStyle: 'solid',
-      borderTopWidth: '4px',
-      content: '""',
-      display: 'inline-block',
-      marginLeft: 's',
-      height: 0,
-      verticalAlign: 'middle',
-      width: 0,
-    },
-  },
-  hover: {
-    ':hover': {
-      backgroundColor: 'background.tertiary',
-    },
-  },
-};
-
-const global = {
-  '*': {
-    boxSizing: 'border-box',
-  },
-  body: {
-    backgroundColor: 'background.primary',
-    color: 'text.primary',
-    fontFamily: 'body',
-    fontSize: 'body',
-    lineHeight: 'body',
-    '-mozOsxFontSmoothing': 'unset',
-  },
-  a: {
-    color: 'text.blue',
-  },
-  'a:hover': {
-    textDecoration: 'underline',
-    opacity: 1,
-  },
-  button: {
-    border: 'bordered',
-    borderRadius: 'm',
-    boxShadow: 'button',
-    cursor: 'pointer',
-    fontSize: 'small',
-    fontWeight: 'medium',
-    minHeight: 'height.button',
-  },
-  'h1, h2, h3, h4, h5, h6': {
-    margin: 0,
-    padding: 0,
-  },
-  hr: {
-    borderBottom: 'bordered',
-    borderTop: 'none',
-    margin: 0,
-    width: '100%',
-  },
-  ul: {
-    listStyleType: 'none',
-    margin: 0,
-    padding: 0,
-  },
-};
-
-const variants = {
+export const styles = {
   button: {
     default: {
       backgroundColor: 'background.secondary',
@@ -155,10 +85,24 @@ const variants = {
     fontSize: 'title',
     whiteSpace: 'nowrap',
   },
-};
-
-export const styles = {
-  global,
-  rules,
-  variants,
+  caret: {
+    '&::after': {
+      borderBottom: '0 solid transparent',
+      borderLeft: '4px solid transparent',
+      borderRight: '4px solid transparent',
+      borderTopStyle: 'solid',
+      borderTopWidth: '4px',
+      content: '""',
+      display: 'inline-block',
+      marginLeft: 's',
+      height: 0,
+      verticalAlign: 'middle',
+      width: 0,
+    },
+  },
+  hover: {
+    ':hover': {
+      backgroundColor: 'background.tertiary',
+    },
+  },
 };

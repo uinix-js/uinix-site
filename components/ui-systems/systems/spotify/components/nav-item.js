@@ -19,7 +19,7 @@ export function NavItem({isSelected = true, item, onSelect}) {
         onClick={() => onSelect(item)}
       >
         <Icon icon={icon} size="icon.l" />
-        <Text variant="text.nav">{label}</Text>
+        <Text styleVariant="text.nav">{label}</Text>
       </Layout>
     </li>
   );

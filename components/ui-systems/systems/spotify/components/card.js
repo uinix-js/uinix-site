@@ -23,7 +23,7 @@ export function Card({description, imgSrc, title}) {
           color="text.primary"
           fontWeight="bold"
           href="#top"
-          variant="text.m"
+          styleVariant="text.m"
         >
           {title}
         </Text>
@@ -32,7 +32,7 @@ export function Card({description, imgSrc, title}) {
           as="a"
           color="text.secondary"
           href="#top"
-          variant="text.s"
+          styleVariant="text.s"
         >
           {description}
         </Text>

@@ -1,19 +1,20 @@
 import {useState} from 'react';
-import {Icon, useStyles} from 'uinix-ui';
+import {Icon} from 'uinix-ui';
+
+import {system} from '../system/system.js';
 
 export function Shuffle() {
-  const styles = useStyles();
   const [isShuffling, setIsShuffling] = useState(false);
 
   return (
     <Icon
       icon="shuffle"
       size="icon.m"
-      styles={isShuffling ? styles.rules.iconBadge : null}
+      styles={isShuffling ? system.styles.iconBadge : null}
       styleProps={{
         isActive: isShuffling,
       }}
-      variant="icon.interactive"
+      styleVariant="icon.interactive"
       onClick={() => setIsShuffling(!isShuffling)}
     />
   );

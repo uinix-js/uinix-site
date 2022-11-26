@@ -8,7 +8,7 @@ export function Readme() {
   const header = (
     <Layout align="center" spacing="m">
       <Icon color="icon.default" icon="listUnordered" size="icon.m" />
-      <Text as="a" href="#top" variant="linkBold">
+      <Text as="a" href="#top" styleVariant="linkBold">
         readme.md
       </Text>
     </Layout>

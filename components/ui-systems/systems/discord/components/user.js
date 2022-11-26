@@ -16,16 +16,20 @@ export function User({isConcise, user, size}) {
     <Layout align="center" spacing="s" styles={[offlineStyle]} onClick={noop}>
       {!isConcise && <Avatar size={size} src={avatarSrc} status={status} />}
       <Layout direction="column">
-        <Text truncate color={`user.role.${role}`} variant={textVariants[size]}>
+        <Text
+          truncate
+          color={`user.role.${role}`}
+          styleVariant={textVariants[size]}
+        >
           {name}
         </Text>
         {!isConcise && activity && (
-          <Text truncate variant="userActivity">
+          <Text truncate styleVariant="userActivity">
             {activity}
           </Text>
         )}
       </Layout>
-      {isBot && <Text variant="tag">Bot</Text>}
+      {isBot && <Text styleVariant="tag">Bot</Text>}
     </Layout>
   );
 }

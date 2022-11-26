@@ -1,16 +1,4 @@
-const rules = {
-  selectedTab: ({isSelected}) => ({
-    color: isSelected ? 'brand.primary' : undefined,
-    borderBottom: 'tab',
-    borderColor: isSelected ? 'tab' : 'transparent',
-  }),
-  selfCentered: {
-    alignSelf: 'center',
-    justifySelf: 'center',
-  },
-};
-
-const variants = {
+export const styles = {
   alphabet: {
     fontFamily: 'google',
     fontSize: 'xl',
@@ -58,6 +46,15 @@ const variants = {
     color: 'text.gray3',
     fontWeight: 'bold',
   },
+  selectedTab: ({isSelected}) => ({
+    color: isSelected ? 'brand.primary' : undefined,
+    borderBottom: 'tab',
+    borderColor: isSelected ? 'tab' : 'transparent',
+  }),
+  selfCentered: {
+    alignSelf: 'center',
+    justifySelf: 'center',
+  },
   subtitle: {
     fontSize: 'subtitle',
   },
@@ -71,64 +68,4 @@ const variants = {
     fontSize: 'title',
     lineHeight: 'title',
   },
-};
-
-const global = {
-  '*': {
-    boxSizing: 'border-box',
-  },
-  a: {
-    color: 'brand.link',
-  },
-  body: {
-    fontFamily: 'body',
-    fontSize: 'body',
-    lineHeight: 'body',
-  },
-  button: variants.button,
-  cite: {
-    fontStyle: 'normal',
-  },
-  'h1, h2, h3, h4, h5, h6': {
-    fontWeight: 'normal',
-    lineHeight: 'heading',
-    margin: 0,
-    padding: 0,
-  },
-  hover: {
-    ':hover': {
-      backgroundColor: 'background.light',
-    },
-  },
-  input: {
-    ...variants.input,
-    border: 'none',
-    height: 'height.input',
-    outline: 'none',
-  },
-  '[title]': {
-    position: 'relative',
-  },
-  '[title]:hover::before': {
-    backgroundColor: 'black',
-    bottom: '-x8',
-    borderRadius: 'm',
-    color: 'white',
-    content: 'attr(title)',
-    fontSize: 's',
-    paddingBottom: 'x1',
-    paddingLeft: 'x2',
-    paddingRight: 'x2',
-    paddingTop: 'x1',
-    position: 'absolute',
-    right: '50%',
-    transform: 'translateX(50%)',
-    whiteSpace: 'nowrap',
-  },
-};
-
-export const styles = {
-  global,
-  rules,
-  variants,
 };

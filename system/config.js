@@ -1,6 +1,9 @@
+import {createElement} from 'react';
+
 import {styles} from './styles.js';
 
 export const config = {
+  createElement,
   elementShorthandPropsMapping: {
     backgroundColor: ['bg'],
     border: ['b'],
@@ -27,8 +30,8 @@ export const config = {
     width: ['w'],
   },
   elementStyles: [
-    ({disabled}) => (disabled ? styles.rules.disabled : null),
-    ({onClick}) => (onClick ? styles.rules.interactive : null),
+    ({disabled}) => (disabled ? styles.disabled : null),
+    ({onClick}) => (onClick ? styles.interactive : null),
   ],
   enableAtomicCss: false,
   enableCssVariables: true,

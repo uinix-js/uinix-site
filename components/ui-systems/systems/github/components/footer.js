@@ -5,17 +5,17 @@ export function Footer() {
     <Layout as="footer" align="center" direction="column" py="xl" spacing="s">
       <Layout as="ul" align="center" spacing="m">
         <li>
-          <Text variant="small">© 2021 GitHub, Inc</Text>
+          <Text styleVariant="small">© 2021 GitHub, Inc</Text>
         </li>
         {links.slice(0, 5).map(({href, label}) => (
-          <Text key={label} as="li" variant="small">
+          <Text key={label} as="li" styleVariant="small">
             <a href={href}>{label}</a>
           </Text>
         ))}
       </Layout>
       <Layout as="ul" spacing="m">
         {links.slice(5).map(({href, label}) => (
-          <Text key={label} as="li" variant="small">
+          <Text key={label} as="li" styleVariant="small">
             <a href={href}>{label}</a>
           </Text>
         ))}

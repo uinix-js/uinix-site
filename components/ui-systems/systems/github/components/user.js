@@ -14,7 +14,7 @@ export function User({user}) {
         src={user.avatar || avatar.src}
         w={avatarSize}
       />
-      <Text as="a" href="https://github.com/chrisrzhou" variant="linkBold">
+      <Text as="a" href="https://github.com/chrisrzhou" styleVariant="linkBold">
         {user.name}
       </Text>
     </Layout>

@@ -1,4 +1,7 @@
+import {createElement} from 'react';
+
 export const config = {
+  createElement,
   elementShorthandPropsMapping: {
     backgroundColor: ['bg'],
     borderRadius: ['borderRadius'],

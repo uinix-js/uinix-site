@@ -1,10 +1,9 @@
-import {Layout, Text, useStyles} from 'uinix-ui';
+import {Layout, Text} from 'uinix-ui';
 
+import {system} from '../../system/system.js';
 import {User} from '../user.js';
 
 export function Message({message}) {
-  const styles = useStyles();
-
   const {at, text, user} = message;
 
   return (
@@ -14,13 +13,13 @@ export function Message({message}) {
       px="l"
       py="s"
       spacing="s"
-      styles={styles.rules.hover}
+      styles={system.styles.hover}
     >
       <Layout align="center" flex="none" spacing="s">
-        <Text variant="messageTime">{at}</Text>
+        <Text styleVariant="messageTime">{at}</Text>
         <User isConcise size="s" user={user} />
       </Layout>
-      <Text flex="auto" variant="message">
+      <Text flex="auto" styleVariant="message">
         {text}
       </Text>
     </Layout>

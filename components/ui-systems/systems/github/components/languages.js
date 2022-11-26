@@ -8,10 +8,10 @@ export function Languages({languages}) {
         <Layout key={name} align="center" spacing="m">
           <Element bg="language.js" borderRadius="round" h="dot.s" w="dot.s" />
           <Layout align="center" spacing="s">
-            <Text as="a" fontSize="small" href="#top" variant="linkBold">
+            <Text as="a" fontSize="small" href="#top" styleVariant="linkBold">
               {name}
             </Text>
-            <Text variant="small">{percentage}%</Text>
+            <Text styleVariant="small">{percentage}%</Text>
           </Layout>
         </Layout>
       ))}

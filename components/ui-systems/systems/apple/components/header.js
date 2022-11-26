@@ -12,7 +12,7 @@ export function Header() {
             key={i}
             as={href ? 'a' : 'div'}
             href={href}
-            variant="headerLink"
+            styleVariant="headerLink"
             onClick={onClick}
           >
             {icon ? <Icon icon={icon} size="icon.m" /> : <Text>{label}</Text>}

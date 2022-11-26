@@ -9,8 +9,8 @@ export function Footer() {
       <Container>
         <Layout direction="column" py="x6" spacing="x3">
           <div>
-            <Text variant="grayEmphasized">Location unavailable</Text> - From
-            your Internet address -{' '}
+            <Text styleVariant="grayEmphasized">Location unavailable</Text> -
+            From your Internet address -{' '}
             <GrayLink href="https://support.google.com/websearch/answer/179386">
               Learn more
             </GrayLink>

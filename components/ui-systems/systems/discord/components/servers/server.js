@@ -40,7 +40,7 @@ export function Server({server, isActive, onSelect}) {
       item = hasAvatar ? (
         <Avatar borderRadius="inherit" size="l" />
       ) : (
-        <Text variant="server">{name[0]}</Text>
+        <Text styleVariant="server">{name[0]}</Text>
       );
     }
   }

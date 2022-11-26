@@ -1,5 +1,5 @@
 import {useRouter} from 'next/router';
-import {createElement as h, useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {merge} from 'uinix-fp';
 import {createSystem} from 'uinix-ui';
 
@@ -9,7 +9,7 @@ import {Select} from '../../../components/ui/select.js';
 import {SystemKnowledge} from '../../../components/ui-systems/system-knowledge.js';
 import {pages} from '../../../data/pages.js';
 import {system as defaultSystem} from '../../../system/system.js';
-import {createSystem as createDefaultSystem} from '../../../system/load-system.js';
+import {createSystem as createDefaultSystem} from '../../../system/create-system.js';
 
 export const getStaticPaths = () => {
   const paths = pages.demos.uiSystems.cards.map((card) => ({
@@ -50,8 +50,7 @@ export default function Page({name}) {
           `../../../components/ui-systems/systems/${name}/demo.js`
         );
 
-        const {config, system} = demo;
-        destroySystem = createSystem({h, config, system: merge(defaultSystem)(system)});
+        destroySystem = createSystem(merge(defaultSystem)(demo.system));
 
         setDemo(demo);
       } catch (error) {

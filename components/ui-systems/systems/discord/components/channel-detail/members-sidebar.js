@@ -1,11 +1,10 @@
-import {Element, Layout, useStyles} from 'uinix-ui';
+import {Element, Layout} from 'uinix-ui';
 
+import {system} from '../../system/system.js';
 import {memberGroups} from '../../data.js';
 import {User} from '../user.js';
 
 export function MembersSidebar() {
-  const styles = useStyles();
-
   return (
     <Layout
       as="aside"
@@ -15,7 +14,7 @@ export function MembersSidebar() {
       px="m"
       py="l"
       spacing="l"
-      styles={styles.rules.scrollable}
+      styles={system.styles.scrollable}
       w="width.sidebar.members"
     >
       {memberGroups.map(({name, members}) => (
@@ -29,7 +28,7 @@ export function MembersSidebar() {
               borderRadius="l"
               px="s"
               py="xxs"
-              styles={styles.rules.hover}
+              styles={system.styles.hover}
             >
               <User user={user} size="m" />
             </Element>

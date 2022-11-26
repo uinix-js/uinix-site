@@ -28,7 +28,9 @@ export function Colors({colors}) {
                 onClick={() => setSelectedColor(color)}
               />
             </Element>
-            {isSelected && <Text variant="small">{colorLabels[color]}</Text>}
+            {isSelected && (
+              <Text styleVariant="small">{colorLabels[color]}</Text>
+            )}
           </Layout>
         );
       })}

@@ -5,9 +5,9 @@ import {Progress} from './progress.js';
 export function SongProgress({current, duration}) {
   return (
     <Layout align="center" alignSelf="stretch" spacing="m">
-      <Text variant="text.xs">{formatTime(current)}</Text>
+      <Text styleVariant="text.xs">{formatTime(current)}</Text>
       <Progress max={duration} value={current} />
-      <Text variant="text.xs">{formatTime(duration)}</Text>
+      <Text styleVariant="text.xs">{formatTime(duration)}</Text>
     </Layout>
   );
 }

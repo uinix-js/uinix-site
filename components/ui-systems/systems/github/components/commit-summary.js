@@ -22,7 +22,7 @@ export function CommitSummary() {
           as="a"
           color="text.primary"
           href="#top"
-          variant="linkText"
+          styleVariant="linkText"
         >
           {message}
         </Text>
@@ -36,7 +36,7 @@ export function CommitSummary() {
           iconColor="tone.success"
           textVariant="link"
         />
-        <Text as="a" href="#top" variant="link">
+        <Text as="a" href="#top" styleVariant="link">
           {at}
         </Text>
         <IconText

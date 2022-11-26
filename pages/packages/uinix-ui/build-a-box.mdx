@@ -20,6 +20,7 @@ To support [shorthand style props][theme-ui-shorthand-style-props], let us first
 
 ```js
 const config = {
+  createElement: React.createElement,
   elementShorthandPropsMapping: {
     backgroundColor: ['bg'],
     color: ['color'],
@@ -39,17 +40,17 @@ const config = {
 
 > **Note:** We can further configure other shorthand props by simply defining them in `config.elementShorthandPropsMapping`.  One may find this useful to implement other shorthand props that were previously provided by [rebass] (e.g. `height`, `width`), or to simply define new style props that fit your needs.  `uinix-ui` allows this to be fully configurable.
 
-## Load the System
+## Create the System
 
-Let us create an example `theme` and load the system so we can test as we develop `Box`.
+Let us create an example `theme` and create the system so we can test as we develop `Box`.
 
 ```js
-import {createElement as h} from 'react';
-import {load} from 'uinix-ui';
+import {createSystem} from 'uinix-ui';
 
 import config from './config.js'; // the config we created previously
 
 const system = {
+  config,
   theme: { // create a simple theme to test shorthand props
     colors: {
       brand: {
@@ -64,12 +65,12 @@ const system = {
   },
 },
 
-load({config, h, system});
+createSystem(system);
 ```
 
 ## Verify Features
 
-After `load`ing our configuration and system, the `Element` component is now configured based on our needs.
+After creating the system, the `Element` component is now configured based on our needs.
 
 ### Shorthand style props
 
@@ -217,6 +218,7 @@ const styles = { // this maybe organized in another shared file
 };
 
 const config = {
+  createElement: React.createElement,
   elementShorthandPropsMapping: {...}; // defined in previous section,
   elementStyles: [
     styles.active,
@@ -226,7 +228,7 @@ const config = {
 };
 ```
 
-[§ Load the System](#load-the-system) appropriately, and test with the following examples to confirm that `Box` and any components built with `Box` should enjoy the same shared styles.
+[§ Create the System](#create-the-system) appropriately, and test with the following examples to confirm that `Box` and any components built with `Box` should enjoy the same shared styles.
 
 ```js
 import {Element, Text} from 'uinix-ui';

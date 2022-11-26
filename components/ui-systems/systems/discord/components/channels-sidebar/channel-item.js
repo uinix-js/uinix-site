@@ -1,14 +1,13 @@
 import {noop} from 'uinix-fp';
-import {Icon, Layout, Text, useStyles} from 'uinix-ui';
+import {Icon, Layout, Text} from 'uinix-ui';
 
+import {system} from '../../system/system.js';
 import {IndicatorLayout} from '../indicator-layout.js';
 import {User} from '../user.js';
 
 const actionsClassName = 'actions';
 
 export function ChannelItem({channel, isActive, onSelect}) {
-  const styles = useStyles();
-
   const {hasNotification, id, name, type} = channel;
   const isTextChannel = type === 'text';
   const icon = isTextChannel ? 'channel' : 'voice';
@@ -26,8 +25,8 @@ export function ChannelItem({channel, isActive, onSelect}) {
           p="s"
           spacing="s"
           styles={[
-            styles.rules.flexFit,
-            styles.rules.hover,
+            system.styles.flexFit,
+            system.styles.hover,
             componentStyles.hoverActions,
           ]}
           onClick={() => onSelect(id)}
@@ -36,10 +35,10 @@ export function ChannelItem({channel, isActive, onSelect}) {
             align="center"
             flex="auto"
             spacing="s"
-            styles={styles.rules.flexFit}
+            styles={system.styles.flexFit}
           >
             <Icon color="text.muted" icon={icon} size="icon.m" />
-            <Text truncate color={textColor} variant="channelName">
+            <Text truncate color={textColor} styleVariant="channelName">
               {name}
             </Text>
           </Layout>

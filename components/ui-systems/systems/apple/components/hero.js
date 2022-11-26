@@ -11,12 +11,12 @@ export function Hero() {
       spacing="x4"
     >
       <Text as="h1">Compare Mac models</Text>
-      <Text variant="subtitle">
-        <Text as="a" href="#top" variant="subtitle">
+      <Text styleVariant="subtitle">
+        <Text as="a" href="#top" styleVariant="subtitle">
           See all models
         </Text>
       </Text>
-      <Text as="p" variant="subtitle">
+      <Text as="p" styleVariant="subtitle">
         Get help choosing. <a href="#top">Contact us</a>.
       </Text>
     </Layout>

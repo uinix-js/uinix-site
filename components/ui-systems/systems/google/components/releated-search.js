@@ -19,7 +19,7 @@ export function RelatedSearch() {
         size="icon.m"
         title="related search"
       />
-      <Text variant="subtitle2">{LOREM_IPSUM}</Text>
+      <Text styleVariant="subtitle2">{LOREM_IPSUM}</Text>
     </Layout>
   );
 }

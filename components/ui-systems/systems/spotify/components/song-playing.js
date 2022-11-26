@@ -1,17 +1,17 @@
 import {useState} from 'react';
-import {Icon, Layout, Text, useStyles} from 'uinix-ui';
+import {Icon, Layout, Text} from 'uinix-ui';
 
+import {system} from '../system/system.js';
 import {Cover} from './cover.js';
 
 export function SongPlaying({artist, song}) {
   const [isLiked, setIsLiked] = useState(true);
-  const styles = useStyles();
 
   return (
-    <Layout align="center" spacing="m" styles={styles.rules.footerSection}>
+    <Layout align="center" spacing="m" styles={system.styles.footerSection}>
       <Cover size="s" />
       <Layout truncate direction="column">
-        <Text truncate as="a" href="#top" variant="text.s">
+        <Text truncate as="a" href="#top" styleVariant="text.s">
           {song}
         </Text>
         <Text
@@ -19,7 +19,7 @@ export function SongPlaying({artist, song}) {
           as="a"
           color="text.secondary"
           href="#top"
-          variant="text.xs"
+          styleVariant="text.xs"
         >
           {artist}
         </Text>
@@ -30,7 +30,7 @@ export function SongPlaying({artist, song}) {
         styleProps={{
           isActive: isLiked,
         }}
-        variant="icon.interactive"
+        styleVariant="icon.interactive"
         onClick={() => setIsLiked(!isLiked)}
       />
     </Layout>

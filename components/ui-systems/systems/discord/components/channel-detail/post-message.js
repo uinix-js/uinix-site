@@ -17,7 +17,7 @@ export function PostMessage() {
         <Element
           as="input"
           placeholder="Message #uinix-ui"
-          variant="input.channelTextArea"
+          styleVariant="input.channelTextArea"
         />
         <Layout align="center" spacing="m">
           <Icon icon="gift" size="icon.l" onClick={noop} />

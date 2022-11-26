@@ -21,7 +21,7 @@ export function Result({type = 'default'}) {
                 onClick={noop}
               />
             </Layout>
-            <Text as="h3" variant="subtitle">
+            <Text as="h3" styleVariant="subtitle">
               {LOREM_IPSUM}
             </Text>
           </a>

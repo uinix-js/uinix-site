@@ -21,13 +21,13 @@ export function Stat({stat}) {
       justify="center"
       spacing="x2"
     >
-      <Text variant="badgeInfo">{isExact ? '' : 'Up to'}</Text>
+      <Text styleVariant="badgeInfo">{isExact ? '' : 'Up to'}</Text>
       {imageSrc ? (
         <Element as="img" h="icon.image" src={imageSrc} />
       ) : (
-        <Text variant="badge">{value}</Text>
+        <Text styleVariant="badge">{value}</Text>
       )}
-      <Text variant="badgeInfo">
+      <Text styleVariant="badgeInfo">
         {description}
         {footnote && <Footnote footnote={footnote} />}
       </Text>

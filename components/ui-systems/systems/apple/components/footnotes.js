@@ -10,7 +10,13 @@ export function Footnotes() {
         {footnotes.map((footnote, i) => {
           const id = createFootnoteId(i);
           return (
-            <Text key={id} as="li" color="text.light" id={id} variant="small">
+            <Text
+              key={id}
+              as="li"
+              color="text.light"
+              id={id}
+              styleVariant="small"
+            >
               {footnote}
             </Text>
           );

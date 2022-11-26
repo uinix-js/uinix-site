@@ -21,7 +21,12 @@ export function FileNav() {
       <Layout align="center" spacing="m">
         <Button text="Go to file" />
         <Button text="Add file" onExpand={noop} />
-        <Button icon="download" text="Code" variant="primary" onExpand={noop} />
+        <Button
+          icon="download"
+          styleVariant="primary"
+          text="Code"
+          onExpand={noop}
+        />
       </Layout>
     </Layout>
   );

@@ -8,7 +8,12 @@ import {Repo} from './repo.js';
 export function Main() {
   return (
     <Layout justify="center" px="l" spacing="l" w="100%">
-      <Layout as="main" direction="column" spacing="m" variant="layout.main">
+      <Layout
+        as="main"
+        direction="column"
+        spacing="m"
+        styleVariant="layout.main"
+      >
         <FileNav />
         <Repo />
         <Readme />

@@ -13,11 +13,11 @@ export function Header() {
         spacing="m"
         onClick={noop}
       >
-        <Icon icon="user" size="icon.m" variant="icon.interactive" />
-        <Text color="text.primary" fontWeight="bold" variant="text.m">
+        <Icon icon="user" size="icon.m" styleVariant="icon.interactive" />
+        <Text color="text.primary" fontWeight="bold" styleVariant="text.m">
           John Doe
         </Text>
-        <Icon icon="arrowDown" size="icon.m" variant="icon.interactive" />
+        <Icon icon="arrowDown" size="icon.m" styleVariant="icon.interactive" />
       </Layout>
     </Layout>
   );

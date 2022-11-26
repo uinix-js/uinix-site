@@ -1,6 +1,6 @@
 import {useState} from 'react';
-import {useStyles} from 'uinix-ui';
 
+import {system} from '../../system/system.js';
 import {Element} from '../ui/element.js';
 import {Icon} from '../ui/icon.js';
 import {Layout} from '../ui/layout.js';
@@ -69,10 +69,8 @@ function Token({children, label}) {
 }
 
 function Icons({icons}) {
-  const styles = useStyles();
-
   return (
-    <Element styles={styles.rules.grid} styleProps={{columns: 5}}>
+    <Element styles={system.styles.grid} styleProps={{columns: 5}}>
       {Object.keys(icons).map((icon) => (
         <Token key={icon} label={icon}>
           <Icon icon={icon} size="24px" />

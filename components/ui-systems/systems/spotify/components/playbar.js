@@ -13,9 +13,9 @@ export function Playbar() {
     <Layout align="center" flex="auto" direction="column" spacing="s">
       <Layout align="center" spacing="l">
         <Shuffle />
-        <Icon icon="previous" size="icon.m" variant="icon.interactive" />
+        <Icon icon="previous" size="icon.m" styleVariant="icon.interactive" />
         <Play />
-        <Icon icon="next" size="icon.m" variant="icon.interactive" />
+        <Icon icon="next" size="icon.m" styleVariant="icon.interactive" />
         <Repeat />
       </Layout>
       <SongProgress current={current} duration={duration} />

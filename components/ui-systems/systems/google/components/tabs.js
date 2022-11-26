@@ -1,12 +1,12 @@
 import {useState} from 'react';
 import {noop} from 'uinix-fp';
-import {Element, Icon, Layout, Text, useStyles} from 'uinix-ui';
+import {Element, Icon, Layout, Text} from 'uinix-ui';
 
+import {system} from '../system/system.js';
 import {Container} from './container.js';
 
 export function Tabs() {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
-  const styles = useStyles();
 
   return (
     <Element bb="bordered" color="text.gray2">
@@ -22,20 +22,20 @@ export function Tabs() {
                   py="x2"
                   spacing="x1"
                   styleProps={{isSelected: selectedTab === tab}}
-                  styles={styles.rules.selectedTab}
+                  styles={system.styles.selectedTab}
                   onClick={() => setSelectedTab(tab)}
                 >
                   <Icon icon={icon} size="icon.s" />
-                  <Text variant="google">{tab}</Text>
+                  <Text styleVariant="google">{tab}</Text>
                 </Layout>
               );
             })}
           </Layout>
-          <Layout spacing="x6" styles={styles.rules.selectedTab}>
-            <Text variant="google" onClick={noop}>
+          <Layout spacing="x6" styles={system.styles.selectedTab}>
+            <Text styleVariant="google" onClick={noop}>
               Settings
             </Text>
-            <Text variant="google" onClick={noop}>
+            <Text styleVariant="google" onClick={noop}>
               Tools
             </Text>
           </Layout>

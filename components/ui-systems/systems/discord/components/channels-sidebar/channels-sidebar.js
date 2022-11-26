@@ -1,12 +1,11 @@
-import {Layout, useStyles} from 'uinix-ui';
+import {Layout} from 'uinix-ui';
 
+import {system} from '../../system/system.js';
 import {channelGroups} from '../../data.js';
 import {ChannelGroup} from './channel-group.js';
 import {Me} from './me.js';
 
 export function ChannelsSidebar() {
-  const styles = useStyles();
-
   return (
     <Layout
       as="nav"
@@ -28,7 +27,7 @@ export function ChannelsSidebar() {
         direction="column"
         py="l"
         spacing="m"
-        styles={styles.rules.scrollable}
+        styles={system.styles.scrollable}
       >
         {channelGroups.map((channelGroup) => (
           <ChannelGroup key={channelGroup.name} channelGroup={channelGroup} />

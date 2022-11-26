@@ -1,4 +1,6 @@
-import {Icon, Layout, Text, useStyles} from 'uinix-ui';
+import {Icon, Layout, Text} from 'uinix-ui';
+
+import {system} from '../system/system.js';
 
 export function Button({
   count = null,
@@ -8,8 +10,6 @@ export function Button({
   onClick,
   onExpand,
 }) {
-  const styles = useStyles();
-
   const hasCount = count !== null;
 
   return (
@@ -18,22 +18,22 @@ export function Button({
       flex="none"
       px={hasCount ? 's' : 'm'}
       py="0"
-      variant={`button.${variant}`}
+      styleVariant={`button.${variant}`}
       onClick={onClick}
     >
       <Layout align="center" flex="none" spacing="s">
         {icon && <Icon icon={icon} size="icon.m" />}
         <Text
           pr={hasCount ? 's' : undefined}
-          styles={onExpand ? styles.rules.caret : null}
-          variant="button.text"
+          styles={onExpand ? system.styles.caret : null}
+          styleVariant="button.text"
         >
           {text}
         </Text>
       </Layout>
       {count && (
         <Layout align="center" bl="bordered" pl="s">
-          <Text variant="button.text">{count}</Text>
+          <Text styleVariant="button.text">{count}</Text>
         </Layout>
       )}
     </Layout>
