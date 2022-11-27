@@ -64,14 +64,14 @@ Please refer to **§ Frameworks** in `uinix-ui` on how to use **uinix-ui** in th
 import {createElement} from 'react';
 import {createSystem} from 'uinix-ui';
 
-const system = {
-  config: {
-    // specify the `createElement` hyperscript method.
-    createElement,
-  },
+const system = {...};
+
+// specify the `createElement` hyperscript method when configuring the system.
+const config = {
+  createElement,
 };
 
-createSystem({system});
+createSystem(system, config);
 ```
 
 Building components will now use the provided `createElement` method.

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {createElement, useState} from 'react';
 import {merge} from 'uinix-fp';
 import {createSystem} from 'uinix-ui';
 
@@ -36,7 +36,7 @@ export function App() {
 
     // TODO: uinix-ui to support namespaced systems.  In the meantime, manually merge and load appropriately.
     const mergedIcons = merge(defaultSystem.icons)(updatedSystem?.icons ?? {});
-    createSystem({...defaultSystem, icons: mergedIcons});
+    createSystem({...defaultSystem, icons: mergedIcons}, {createElement});
   };
 
   const handleUploadSystem = async (event) => {

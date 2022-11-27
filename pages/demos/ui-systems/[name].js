@@ -50,7 +50,10 @@ export default function Page({name}) {
           `../../../components/ui-systems/systems/${name}/demo.js`
         );
 
-        destroySystem = createSystem(merge(defaultSystem)(demo.system));
+        destroySystem = createSystem(
+          merge(defaultSystem)(demo.system),
+          demo.config,
+        );
 
         setDemo(demo);
       } catch (error) {

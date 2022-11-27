@@ -50,7 +50,6 @@ import {createSystem} from 'uinix-ui';
 import config from './config.js'; // the config we created previously
 
 const system = {
-  config,
   theme: { // create a simple theme to test shorthand props
     colors: {
       brand: {
@@ -65,7 +64,7 @@ const system = {
   },
 },
 
-createSystem(system);
+createSystem(system, config);
 ```
 
 ## Verify Features
